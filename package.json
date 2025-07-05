@@ -1,0 +1,33 @@
+{
+  "name": "youtube",
+  "version": "1.0.0",
+  "description": "Youtube App",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/summbal122/Youtube.git"
+  },
+  "keywords": [
+    "youtube"
+  ],
+  "author": "Sumbal Ijaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/summbal122/Youtube/issues"
+  },
+  "homepage": "https://github.com/summbal122/Youtube#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "i": "^0.3.7",
+    "npm": "^11.4.2",
+    "parcel": "^2.15.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.6.3",
+    "react-router-dom": "^7.6.3",
+    "tailwindcss": "^4.1.11"
+  }
+}
