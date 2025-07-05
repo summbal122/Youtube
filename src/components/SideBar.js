@@ -1,8 +1,58 @@
-
+import { SHORTS_LOGO, SUBS_LOGO, PLAYLIST_LOGO, WATCH_LATER_LOGO, YOUR_VIDEOS_LOGO, GAMING_LOGO, NEWS_LOGO, SPORTS_LOGO } from "../Constants"
+import { useSelector } from "react-redux";
 const SideBar = () => {
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen)
+  const IMG = new URL("../../images/sports.png", import.meta.url).href;
+  const IMG_TRENDING = new URL("../../images/trending.png", import.meta.url).href;
+
+  if (!isMenuOpen) return null;
   return (
-    <div>
-      
+    <div className=" flex flex-col items-center gap-4 ">
+
+      <ul className="space-y-4 flex flex-col ">
+      <li className="flex gap-4 ml-3 items-center">
+        <i className="fa-solid fa-house text-lg "></i> 
+        Home </li>
+       <li className="flex items-center gap-2" ><img className="w-9 inline" alt="" src={SHORTS_LOGO}/>
+        Shorts</li>
+       <li className="flex items-center">
+        <img className="w-11 inline -ml-1 " alt="" src={SUBS_LOGO}/> 
+        Subscriptions</li>
+      </ul>
+
+      <hr className="text-gray-200 w-full"></hr>
+     <div className="space-y-2">
+      <h1>You</h1>
+       <ul className="space-y-3 flex flex-col">
+        <li className="flex gap-4 items-center">
+        <i className="fa-solid fa-clock-rotate-left text-lg">
+        </i>History </li>
+       <li className="flex gap-3 items-center">
+        <img className="w-6 inline" alt="" src={PLAYLIST_LOGO}/>
+         Playlists</li>
+       <li className="flex gap-3 items-center" >
+        <img className="w-6 inline" alt="" src={YOUR_VIDEOS_LOGO}/>
+         Your videos</li>
+       <li className="flex gap-3 items-center">
+        <img className="w-6 inline" alt="" src={WATCH_LATER_LOGO}/>
+         Watch later</li>
+       <li className="flex gap-3 items-center">
+        <i className="fa-regular fa-thumbs-up text-xl"></i>
+        Liked videos</li>
+      </ul>
+       </div>
+     <hr className="text-gray-200 w-full"></hr>
+
+     <div className="space-y-2">
+      <h2>Explore</h2>
+       <ul className="space-y-3 flex flex-col" >
+        <li><img className="w-12 -ml-3 inline " alt="" src={IMG_TRENDING}/>Trending</li>
+        <li className="flex gap-6 items-center"><i className="fa-solid fa-music text-lg"></i>Music</li>
+       <li className="flex gap-3 items-center"><img className="w-7 inline " alt="" src={GAMING_LOGO}/>Gaming</li>
+       <li className="flex gap-3 items-center"><img className="w-7 inline " alt="" src={NEWS_LOGO}/>News</li>
+       <li className="flex"><img className="w-14 -ml-4 inline" alt="" src={IMG}/>Watch later</li>
+      </ul> 
+      </div>
     </div>
   )
 }
