@@ -2,7 +2,7 @@ import Button from "./Button";
 
 const OptionsSection = () => {
   return (
-    <div className="overflow-x-auto whitespace-nowrap space-x-2 ">
+    <div className="overflow-x-auto whitespace-nowrap space-x-2 fixed bg-white -mt-6 py-4">
       <button className="inline-block text-sm px-4 py-2 bg-black text-white rounded-md ">
         All
       </button>

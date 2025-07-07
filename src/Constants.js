@@ -7,4 +7,7 @@ export const YOUR_VIDEOS_LOGO ="https://img.icons8.com/ios7/512/youtube-play.png
 export const TRENDING_LOGO="https://static.vecteezy.com/system/resources/previews/000/580/752/non_2x/fire-flame-logo-template-vector-icon-oil-gas-and-energy-logo.jpg";
 export const GAMING_LOGO ="https://cdn-icons-png.flaticon.com/512/7708/7708371.png";
 export const NEWS_LOGO ="https://t4.ftcdn.net/jpg/01/03/95/35/360_F_103953529_PCEL52QBWBkKnoXD2l9ZFNOEcdm5PARf.jpg";
-export const SPORTS_LOGO ="https://media.istockphoto.com/id/1213673056/video/modern-trophy-award-line-icon-animation-on-white-background.jpg?s=640x640&k=20&c=mYMCSWLOhbSffu5HybGhRWLMJqkgYCER2R3Q7zuIuZ8="
+const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
+export const YOUTUBE_VIDEOS = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=US&key=${API_KEY}`
+export const YOUTUBE_COMMENTS = (videoId, apiKey) =>
+  `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${apiKey}`;

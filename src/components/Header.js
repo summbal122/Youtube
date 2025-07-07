@@ -8,7 +8,7 @@ const Header = () => {
     dispatch(toggleMenu());
   }
   return (
-    <div className="grid grid-cols-12 px-6 py-1 gap-6 ">
+    <div className="grid grid-cols-12 px-6 py-1 gap-6 sticky top-0 bg-white ">
       <div className="col-span-3 flex items-center gap-4 ">
       <i 
       onClick={() => {

@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { SHORTS_LOGO, SUBS_LOGO, PLAYLIST_LOGO, WATCH_LATER_LOGO, YOUR_VIDEOS_LOGO, GAMING_LOGO, NEWS_LOGO, SPORTS_LOGO } from "../Constants"
 import { useSelector } from "react-redux";
 const SideBar = () => {
@@ -7,12 +8,12 @@ const SideBar = () => {
 
   if (!isMenuOpen) return null;
   return (
-    <div className=" flex flex-col items-center gap-4 ">
-
+    <div className=" flex flex-col items-center gap-4 fixed ml-3 h-screen overflow-y-scroll">
       <ul className="space-y-4 flex flex-col ">
       <li className="flex gap-4 ml-3 items-center">
         <i className="fa-solid fa-house text-lg "></i> 
-        Home </li>
+        <Link to="/">Home </Link>
+</li>
        <li className="flex items-center gap-2" ><img className="w-9 inline" alt="" src={SHORTS_LOGO}/>
         Shorts</li>
        <li className="flex items-center">
