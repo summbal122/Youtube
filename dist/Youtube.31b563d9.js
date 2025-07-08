@@ -16376,6 +16376,7 @@ parcelHelpers.export(exports, "GAMING_LOGO", ()=>GAMING_LOGO);
 parcelHelpers.export(exports, "NEWS_LOGO", ()=>NEWS_LOGO);
 parcelHelpers.export(exports, "YOUTUBE_VIDEOS", ()=>YOUTUBE_VIDEOS);
 parcelHelpers.export(exports, "YOUTUBE_COMMENTS", ()=>YOUTUBE_COMMENTS);
+parcelHelpers.export(exports, "YOUTUBE_SEARCH_API", ()=>YOUTUBE_SEARCH_API);
 const LOGO = "https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500";
 const SHORTS_LOGO = "https://i.pinimg.com/736x/17/d2/18/17d21878c22fe49e7e4752eecaa36541.jpg";
 const SUBS_LOGO = "https://images.squarespace-cdn.com/content/v1/577dee1fc534a5d5bcf56161/1470045573203-75VJ6HHOOKWBUPLW00TP/image-asset.png";
@@ -16387,8 +16388,9 @@ const GAMING_LOGO = "https://cdn-icons-png.flaticon.com/512/7708/7708371.png";
 const NEWS_LOGO = "https://t4.ftcdn.net/jpg/01/03/95/35/360_F_103953529_PCEL52QBWBkKnoXD2l9ZFNOEcdm5PARf.jpg";
 const API_KEY = "AIzaSyAGlhwa-3CD81dDi6R9ZcbH90XDjS3dcFU";
 const YOUTUBE_VIDEOS = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=US&key=${API_KEY}`;
-const YOUTUBE_COMMENTS = (videoId, apiKey)=>`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${apiKey}`;
+const YOUTUBE_COMMENTS = (videoId, apiKey)=>`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${apiKey}&maxResults=85`;
 _c = YOUTUBE_COMMENTS;
+const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 var _c;
 $RefreshReg$(_c, "YOUTUBE_COMMENTS");
 
@@ -23704,10 +23706,10 @@ var _sideBarDefault = parcelHelpers.interopDefault(_sideBar);
 var _reactRouter = require("react-router");
 const Body = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flex w-full mt-4 ",
+        className: "flex w-full mt-4",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "w-42",
+                className: "px-2",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sideBarDefault.default), {}, void 0, false, {
                     fileName: "src/components/Body.js",
                     lineNumber: 9,
@@ -23769,13 +23771,13 @@ const SideBar = ()=>{
     const IMG_TRENDING = new URL(require("42b4b602742bd273")).href;
     if (!isMenuOpen) return null;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: " flex flex-col items-center gap-4 fixed ml-3 h-screen overflow-y-scroll",
+        className: " flex flex-col items-center gap-4 sticky top-20 bottom-0 overflow-x-scroll h-145",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                 className: "space-y-4 flex flex-col ",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "flex gap-4 ml-3 items-center",
+                        className: "flex gap-4 ml-3 items-center hover:cursor-pointer",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                 className: "fa-solid fa-house text-lg "
@@ -23799,7 +23801,7 @@ const SideBar = ()=>{
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "flex items-center gap-2",
+                        className: "flex items-center gap-2 hover:cursor-pointer",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                 className: "w-9 inline",
@@ -23808,7 +23810,7 @@ const SideBar = ()=>{
                             }, void 0, false, {
                                 fileName: "src/components/SideBar.js",
                                 lineNumber: 17,
-                                columnNumber: 49
+                                columnNumber: 70
                             }, undefined),
                             "Shorts"
                         ]
@@ -23818,7 +23820,7 @@ const SideBar = ()=>{
                         columnNumber: 8
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "flex items-center",
+                        className: "flex items-center hover:cursor-pointer",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                 className: "w-11 inline -ml-1 ",
@@ -23863,7 +23865,7 @@ const SideBar = ()=>{
                         className: "space-y-3 flex flex-col",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "flex gap-4 items-center",
+                                className: "flex gap-4 items-center hover:cursor-pointer",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                         className: "fa-solid fa-clock-rotate-left text-lg"
@@ -23880,7 +23882,7 @@ const SideBar = ()=>{
                                 columnNumber: 9
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "flex gap-3 items-center",
+                                className: "flex gap-3 items-cente hover:cursor-pointer",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                         className: "w-6 inline",
@@ -23899,7 +23901,7 @@ const SideBar = ()=>{
                                 columnNumber: 8
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "flex gap-3 items-center",
+                                className: "flex gap-3 items-center hover:cursor-pointer",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                         className: "w-6 inline",
@@ -23918,7 +23920,7 @@ const SideBar = ()=>{
                                 columnNumber: 8
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "flex gap-3 items-center",
+                                className: "flex gap-3 items-center hover:cursor-pointer",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                         className: "w-6 inline",
@@ -23937,7 +23939,7 @@ const SideBar = ()=>{
                                 columnNumber: 8
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "flex gap-3 items-center",
+                                className: "flex gap-3 items-center hover:cursor-pointer",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                         className: "fa-regular fa-thumbs-up text-xl"
@@ -23973,7 +23975,7 @@ const SideBar = ()=>{
                 columnNumber: 6
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "space-y-2",
+                className: "space-y-2 -ml-6",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                         children: "Explore"
@@ -23983,12 +23985,12 @@ const SideBar = ()=>{
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                        className: "space-y-3 flex flex-col",
+                        className: "space-y-3 flex flex-col hover:cursor-pointer ",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                        className: "w-12 -ml-3 inline ",
+                                        className: "w-12 -ml-3 inline hover:cursor-pointer ",
                                         alt: "",
                                         src: IMG_TRENDING
                                     }, void 0, false, {
@@ -24004,14 +24006,14 @@ const SideBar = ()=>{
                                 columnNumber: 9
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "flex gap-6 items-center",
+                                className: "flex gap-6 items-center hover:cursor-pointer",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                         className: "fa-solid fa-music text-lg"
                                     }, void 0, false, {
                                         fileName: "src/components/SideBar.js",
                                         lineNumber: 51,
-                                        columnNumber: 49
+                                        columnNumber: 70
                                     }, undefined),
                                     "Music"
                                 ]
@@ -24021,7 +24023,7 @@ const SideBar = ()=>{
                                 columnNumber: 9
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "flex gap-3 items-center",
+                                className: "flex gap-3 items-center hover:cursor-pointer",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                         className: "w-7 inline ",
@@ -24030,7 +24032,7 @@ const SideBar = ()=>{
                                     }, void 0, false, {
                                         fileName: "src/components/SideBar.js",
                                         lineNumber: 52,
-                                        columnNumber: 48
+                                        columnNumber: 69
                                     }, undefined),
                                     "Gaming"
                                 ]
@@ -24040,7 +24042,7 @@ const SideBar = ()=>{
                                 columnNumber: 8
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "flex gap-3 items-center",
+                                className: "flex gap-3 items-center hover:cursor-pointer",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                         className: "w-7 inline ",
@@ -24049,7 +24051,7 @@ const SideBar = ()=>{
                                     }, void 0, false, {
                                         fileName: "src/components/SideBar.js",
                                         lineNumber: 53,
-                                        columnNumber: 48
+                                        columnNumber: 69
                                     }, undefined),
                                     "News"
                                 ]
@@ -24062,7 +24064,7 @@ const SideBar = ()=>{
                                 className: "flex",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                        className: "w-14 -ml-4 inline",
+                                        className: "w-14 -ml-4 inline hover:cursor-pointer",
                                         alt: "",
                                         src: IMG
                                     }, void 0, false, {
@@ -24070,11 +24072,182 @@ const SideBar = ()=>{
                                         lineNumber: 54,
                                         columnNumber: 29
                                     }, undefined),
-                                    "Watch later"
+                                    "Sports"
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/SideBar.js",
                                 lineNumber: 54,
+                                columnNumber: 8
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "flex",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        className: "w-14 -ml-4 inline",
+                                        alt: "",
+                                        src: IMG
+                                    }, void 0, false, {
+                                        fileName: "src/components/SideBar.js",
+                                        lineNumber: 56,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    "Sports"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/SideBar.js",
+                                lineNumber: 56,
+                                columnNumber: 8
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "flex",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        className: "w-14 -ml-4 inline",
+                                        alt: "",
+                                        src: IMG
+                                    }, void 0, false, {
+                                        fileName: "src/components/SideBar.js",
+                                        lineNumber: 57,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    "Sports"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/SideBar.js",
+                                lineNumber: 57,
+                                columnNumber: 8
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "flex",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        className: "w-14 -ml-4 inline",
+                                        alt: "",
+                                        src: IMG
+                                    }, void 0, false, {
+                                        fileName: "src/components/SideBar.js",
+                                        lineNumber: 58,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    "Sports"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/SideBar.js",
+                                lineNumber: 58,
+                                columnNumber: 8
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "flex",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        className: "w-14 -ml-4 inline",
+                                        alt: "",
+                                        src: IMG
+                                    }, void 0, false, {
+                                        fileName: "src/components/SideBar.js",
+                                        lineNumber: 59,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    "Sports"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/SideBar.js",
+                                lineNumber: 59,
+                                columnNumber: 8
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "flex",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        className: "w-14 -ml-4 inline",
+                                        alt: "",
+                                        src: IMG
+                                    }, void 0, false, {
+                                        fileName: "src/components/SideBar.js",
+                                        lineNumber: 60,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    "Sports"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/SideBar.js",
+                                lineNumber: 60,
+                                columnNumber: 8
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "flex",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        className: "w-14 -ml-4 inline",
+                                        alt: "",
+                                        src: IMG
+                                    }, void 0, false, {
+                                        fileName: "src/components/SideBar.js",
+                                        lineNumber: 61,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    "Sports"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/SideBar.js",
+                                lineNumber: 61,
+                                columnNumber: 8
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "flex",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        className: "w-14 -ml-4 inline",
+                                        alt: "",
+                                        src: IMG
+                                    }, void 0, false, {
+                                        fileName: "src/components/SideBar.js",
+                                        lineNumber: 62,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    "Sports"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/SideBar.js",
+                                lineNumber: 62,
+                                columnNumber: 8
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "flex",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        className: "w-14 -ml-4 inline",
+                                        alt: "",
+                                        src: IMG
+                                    }, void 0, false, {
+                                        fileName: "src/components/SideBar.js",
+                                        lineNumber: 63,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    "Sports"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/SideBar.js",
+                                lineNumber: 63,
+                                columnNumber: 8
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "flex",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        className: "w-14 -ml-4 inline",
+                                        alt: "",
+                                        src: IMG
+                                    }, void 0, false, {
+                                        fileName: "src/components/SideBar.js",
+                                        lineNumber: 64,
+                                        columnNumber: 29
+                                    }, undefined),
+                                    "Sports"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/SideBar.js",
+                                lineNumber: 64,
                                 columnNumber: 8
                             }, undefined)
                         ]
@@ -33982,8 +34155,6 @@ var _useVideoComments = require("../utils/useVideoComments");
 var _useVideoCommentsDefault = parcelHelpers.interopDefault(_useVideoComments);
 var _useFetchVideos = require("../utils/useFetchVideos");
 var _useFetchVideosDefault = parcelHelpers.interopDefault(_useFetchVideos);
-var _videoCard = require("./videoCard");
-var _videoCardDefault = parcelHelpers.interopDefault(_videoCard);
 var _s = $RefreshSig$();
 const WatchPage = ()=>{
     _s();
@@ -34005,14 +34176,15 @@ const WatchPage = ()=>{
         columnNumber: 22
     }, undefined);
     const { snippet, statistics } = video;
+    console.log(videos);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flex px-6 border-4",
+        className: "flex justify-around px-2 py-4",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "w-[70%] py-4 pr-6",
+                className: "pr-4 space-y-2",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("iframe", {
-                        width: "900",
+                        width: "1000",
                         height: "500",
                         src: `https://www.youtube.com/embed/${searchParams.get("v")}`,
                         title: "YouTube video player",
@@ -34022,101 +34194,188 @@ const WatchPage = ()=>{
                         allowFullScreen: true
                     }, void 0, false, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 29,
+                        lineNumber: 27,
                         columnNumber: 7
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                        className: "font-bold text-lg",
-                        children: snippet.title
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "flex justify-between",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                                        className: "font-bold text-xl mt-2",
+                                        children: snippet.title
+                                    }, void 0, false, {
+                                        fileName: "src/components/WatchPage.js",
+                                        lineNumber: 33,
+                                        columnNumber: 12
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                        className: "text-sm font-bold",
+                                        children: snippet.channelTitle
+                                    }, void 0, false, {
+                                        fileName: "src/components/WatchPage.js",
+                                        lineNumber: 34,
+                                        columnNumber: 12
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/WatchPage.js",
+                                lineNumber: 32,
+                                columnNumber: 9
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "flex items-center gap-3",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "bg-gray-200 py-2 px-6 space-x-6 text-lg rounded-3xl",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                className: "fa-regular fa-thumbs-up hover:cursor-pointer"
+                                            }, void 0, false, {
+                                                fileName: "src/components/WatchPage.js",
+                                                lineNumber: 39,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                children: "|"
+                                            }, void 0, false, {
+                                                fileName: "src/components/WatchPage.js",
+                                                lineNumber: 40,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                className: "fa-regular fa-thumbs-down hover:cursor-pointer"
+                                            }, void 0, false, {
+                                                fileName: "src/components/WatchPage.js",
+                                                lineNumber: 41,
+                                                columnNumber: 15
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/WatchPage.js",
+                                        lineNumber: 38,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "flex items-center gap-2 bg-gray-200 rounded-3xl px-4 py-2 hover:cursor-pointer",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                className: "w-6",
+                                                src: "https://cdn-icons-png.flaticon.com/512/6469/6469436.png"
+                                            }, void 0, false, {
+                                                fileName: "src/components/WatchPage.js",
+                                                lineNumber: 44,
+                                                columnNumber: 15
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                className: "font-semibold text-sm",
+                                                children: "Share"
+                                            }, void 0, false, {
+                                                fileName: "src/components/WatchPage.js",
+                                                lineNumber: 45,
+                                                columnNumber: 15
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/WatchPage.js",
+                                        lineNumber: 43,
+                                        columnNumber: 14
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                        className: "fa-solid fa-arrow-down hover:cursor-pointer"
+                                    }, void 0, false, {
+                                        fileName: "src/components/WatchPage.js",
+                                        lineNumber: 47,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        className: "bg-gray-200 px-3 py-2 rounded-full font-bold hover:cursor-pointer",
+                                        children: "..."
+                                    }, void 0, false, {
+                                        fileName: "src/components/WatchPage.js",
+                                        lineNumber: 48,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/WatchPage.js",
+                                lineNumber: 37,
+                                columnNumber: 8
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
                         fileName: "src/components/WatchPage.js",
                         lineNumber: 31,
                         columnNumber: 7
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                        className: "font-medium text-sm",
-                        children: snippet.channelTitle
-                    }, void 0, false, {
-                        fileName: "src/components/WatchPage.js",
-                        lineNumber: 32,
-                        columnNumber: 7
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                        className: "text-xs",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         children: [
-                            statistics.likeCount,
-                            " views"
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                className: "text-xs font-bold mb-1",
+                                children: [
+                                    statistics.likeCount,
+                                    " views"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/WatchPage.js",
+                                lineNumber: 52,
+                                columnNumber: 7
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                className: "text-sm ",
+                                children: snippet.description
+                            }, void 0, false, {
+                                fileName: "src/components/WatchPage.js",
+                                lineNumber: 53,
+                                columnNumber: 7
+                            }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 33,
-                        columnNumber: 7
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "text-sm",
-                        children: snippet.description
-                    }, void 0, false, {
-                        fileName: "src/components/WatchPage.js",
-                        lineNumber: 34,
-                        columnNumber: 7
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                        className: "fa-regular fa-thumbs-up"
-                    }, void 0, false, {
-                        fileName: "src/components/WatchPage.js",
-                        lineNumber: 35,
-                        columnNumber: 7
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                        className: "fa-regular fa-thumbs-down"
-                    }, void 0, false, {
-                        fileName: "src/components/WatchPage.js",
-                        lineNumber: 36,
-                        columnNumber: 7
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                        className: "fa-solid fa-arrow-down"
-                    }, void 0, false, {
-                        fileName: "src/components/WatchPage.js",
-                        lineNumber: 37,
-                        columnNumber: 7
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        className: "w-5",
-                        src: "https://cdn-icons-png.flaticon.com/512/6469/6469436.png"
-                    }, void 0, false, {
-                        fileName: "src/components/WatchPage.js",
-                        lineNumber: 38,
+                        lineNumber: 51,
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "mt-8 flex flex-col gap-5",
+                        className: "my-10 flex flex-col gap-5",
                         children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                                className: "text-lg font-semibold",
-                                children: "Comments"
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "flex items-center gap-2 text-xl font-bold",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                        children: statistics.commentCount
+                                    }, void 0, false, {
+                                        fileName: "src/components/WatchPage.js",
+                                        lineNumber: 59,
+                                        columnNumber: 12
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                        children: "Comments"
+                                    }, void 0, false, {
+                                        fileName: "src/components/WatchPage.js",
+                                        lineNumber: 60,
+                                        columnNumber: 12
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
                                 fileName: "src/components/WatchPage.js",
-                                lineNumber: 42,
-                                columnNumber: 9
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                className: "font-medium",
-                                children: statistics.commentCount
-                            }, void 0, false, {
-                                fileName: "src/components/WatchPage.js",
-                                lineNumber: 43,
+                                lineNumber: 58,
                                 columnNumber: 10
                             }, undefined),
                             comments.map((comment)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "mt-2 flex gap-3",
+                                    className: "flex gap-3 px-3",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            className: "rounded-full",
-                                            src: comment.snippet.topLevelComment.snippet.authorProfileImageUrl
+                                            className: "rounded-full w-10 h-10",
+                                            src: comment.snippet.topLevelComment.snippet.authorProfileImageUrl,
+                                            onError: (e)=>{
+                                                e.target.onerror = null;
+                                                e.target.src = "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png";
+                                            },
+                                            alt: "profile"
                                         }, void 0, false, {
                                             fileName: "src/components/WatchPage.js",
-                                            lineNumber: 46,
+                                            lineNumber: 64,
                                             columnNumber: 13
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34127,7 +34386,7 @@ const WatchPage = ()=>{
                                                     children: comment.snippet.topLevelComment.snippet.authorDisplayName
                                                 }, void 0, false, {
                                                     fileName: "src/components/WatchPage.js",
-                                                    lineNumber: 48,
+                                                    lineNumber: 74,
                                                     columnNumber: 13
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -34135,44 +34394,106 @@ const WatchPage = ()=>{
                                                     children: comment.snippet.topLevelComment.snippet.textDisplay
                                                 }, void 0, false, {
                                                     fileName: "src/components/WatchPage.js",
-                                                    lineNumber: 51,
+                                                    lineNumber: 77,
                                                     columnNumber: 13
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/components/WatchPage.js",
-                                            lineNumber: 47,
+                                            lineNumber: 73,
                                             columnNumber: 13
                                         }, undefined)
                                     ]
                                 }, comment.id, true, {
                                     fileName: "src/components/WatchPage.js",
-                                    lineNumber: 45,
+                                    lineNumber: 63,
                                     columnNumber: 11
                                 }, undefined))
                         ]
                     }, void 0, true, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 40,
+                        lineNumber: 57,
                         columnNumber: 7
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/WatchPage.js",
-                lineNumber: 28,
+                lineNumber: 26,
                 columnNumber: 5
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "w-[30%] gap-y-7 mt-15 overflow-y-auto"
+                className: "space-y-6 ",
+                children: videos.map((vid)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: " w-95 h-28 flex space-x-2 hover:cursor-pointer ",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                alt: "Video thumbnail",
+                                className: "rounded-xl h-30",
+                                src: vid.snippet.thumbnails.high.url
+                            }, void 0, false, {
+                                fileName: "src/components/WatchPage.js",
+                                lineNumber: 88,
+                                columnNumber: 15
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "flex flex-col justify-around",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                                        className: "text-xs font-semibold text-black ",
+                                        children: vid.snippet.title
+                                    }, void 0, false, {
+                                        fileName: "src/components/WatchPage.js",
+                                        lineNumber: 90,
+                                        columnNumber: 16
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                                className: "text-[#606060] text-xs",
+                                                children: vid.snippet.channelTitle
+                                            }, void 0, false, {
+                                                fileName: "src/components/WatchPage.js",
+                                                lineNumber: 92,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                className: "text-[#606060] text-xs",
+                                                children: [
+                                                    (vid.statistics.viewCount / 10000).toFixed(1),
+                                                    "K views "
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/components/WatchPage.js",
+                                                lineNumber: 93,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/WatchPage.js",
+                                        lineNumber: 91,
+                                        columnNumber: 16
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/WatchPage.js",
+                                lineNumber: 89,
+                                columnNumber: 15
+                            }, undefined)
+                        ]
+                    }, vid.id, true, {
+                        fileName: "src/components/WatchPage.js",
+                        lineNumber: 87,
+                        columnNumber: 13
+                    }, undefined))
             }, void 0, false, {
                 fileName: "src/components/WatchPage.js",
-                lineNumber: 57,
-                columnNumber: 11
+                lineNumber: 85,
+                columnNumber: 10
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/WatchPage.js",
-        lineNumber: 27,
+        lineNumber: 25,
         columnNumber: 5
     }, undefined);
 };
@@ -34195,7 +34516,7 @@ $RefreshReg$(_c, "WatchPage");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-redux":"hbNxT","../utils/appSlice":"cVNx9","react-router":"2jawN","../utils/useVideoDetails":"kbzDV","../utils/useVideoComments":"2TiC9","../utils/useFetchVideos":"jFsia","./videoCard":"1gO11","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"kbzDV":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-redux":"hbNxT","../utils/appSlice":"cVNx9","react-router":"2jawN","../utils/useVideoDetails":"kbzDV","../utils/useVideoComments":"2TiC9","../utils/useFetchVideos":"jFsia","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"kbzDV":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$728c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$728c.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -34299,91 +34620,7 @@ exports.default = useFetchVideo;
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"../Constants":"hwDSF","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"1gO11":[function(require,module,exports,__globalThis) {
-var $parcel$ReactRefreshHelpers$273c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-$parcel$ReactRefreshHelpers$273c.init();
-var prevRefreshReg = globalThis.$RefreshReg$;
-var prevRefreshSig = globalThis.$RefreshSig$;
-$parcel$ReactRefreshHelpers$273c.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const VideoCard = ({ info })=>{
-    if (!info) return null;
-    const { snippet, statistics } = info;
-    const { channelTitle, title, thumbnails } = snippet;
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                className: "rounded-2xl h-68 w-full mb-2",
-                src: thumbnails?.high?.url,
-                alt: "video thumbnail"
-            }, void 0, false, {
-                fileName: "src/components/videoCard.js",
-                lineNumber: 9,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                className: "space-y-2",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "font-semibold text-lg",
-                        children: title
-                    }, void 0, false, {
-                        fileName: "src/components/videoCard.js",
-                        lineNumber: 12,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "text-sm text-[#606060] mb-1",
-                                children: channelTitle
-                            }, void 0, false, {
-                                fileName: "src/components/videoCard.js",
-                                lineNumber: 14,
-                                columnNumber: 9
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "text-xs text-[#606060]",
-                                children: [
-                                    (statistics?.viewCount / 1000000).toFixed(1),
-                                    " K views"
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/videoCard.js",
-                                lineNumber: 15,
-                                columnNumber: 9
-                            }, undefined)
-                        ]
-                    }, void 0, true)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/videoCard.js",
-                lineNumber: 11,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/videoCard.js",
-        lineNumber: 8,
-        columnNumber: 5
-    }, undefined);
-};
-_c = VideoCard;
-exports.default = VideoCard;
-var _c;
-$RefreshReg$(_c, "VideoCard");
-
-  $parcel$ReactRefreshHelpers$273c.postlude(module);
-} finally {
-  globalThis.$RefreshReg$ = prevRefreshReg;
-  globalThis.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"3Llkp":[function(require,module,exports,__globalThis) {
+},{"../Constants":"hwDSF","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"3Llkp":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$f145 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$f145.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -34447,7 +34684,7 @@ const OptionsSection = ()=>{
         className: "overflow-x-auto whitespace-nowrap space-x-2 fixed bg-white -mt-6 py-4",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                className: "inline-block text-sm px-4 py-2 bg-black text-white rounded-md ",
+                className: "inline-block text-sm px-4 py-2 bg-black text-white rounded-md hover:cursor-pointer",
                 children: "All"
             }, void 0, false, {
                 fileName: "src/components/OptionsSection.js",
@@ -34603,7 +34840,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const Button = ({ title })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-        className: "inline-block px-4 py-2 bg-gray-200 rounded-md mr-2 whitespace-nowrap text-sm font-semibold",
+        className: "inline-block px-4 py-2 bg-gray-200 rounded-md mr-2 whitespace-nowrap text-sm font-semibold hover:cursor-pointer",
         children: title
     }, void 0, false, {
         fileName: "src/components/Button.js",
@@ -34687,6 +34924,90 @@ $RefreshReg$(_c, "VideosSection");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","../utils/useFetchVideos":"jFsia","./videoCard":"1gO11","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequirec9fe", {}, "./", "/", "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","../utils/useFetchVideos":"jFsia","./videoCard":"1gO11","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"1gO11":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$273c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$273c.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$273c.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const VideoCard = ({ info })=>{
+    if (!info) return null;
+    const { snippet, statistics } = info;
+    const { channelTitle, title, thumbnails } = snippet;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                className: "rounded-2xl h-68 w-full mb-2",
+                src: thumbnails?.high?.url,
+                alt: "video thumbnail"
+            }, void 0, false, {
+                fileName: "src/components/videoCard.js",
+                lineNumber: 9,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                className: "space-y-2",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        className: "font-semibold text-lg",
+                        children: title
+                    }, void 0, false, {
+                        fileName: "src/components/videoCard.js",
+                        lineNumber: 12,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "text-sm text-[#606060] mb-1",
+                                children: channelTitle
+                            }, void 0, false, {
+                                fileName: "src/components/videoCard.js",
+                                lineNumber: 14,
+                                columnNumber: 9
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                className: "text-xs text-[#606060]",
+                                children: [
+                                    (statistics?.viewCount / 1000000).toFixed(1),
+                                    " K views"
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/videoCard.js",
+                                lineNumber: 15,
+                                columnNumber: 9
+                            }, undefined)
+                        ]
+                    }, void 0, true)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/videoCard.js",
+                lineNumber: 11,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/videoCard.js",
+        lineNumber: 8,
+        columnNumber: 5
+    }, undefined);
+};
+_c = VideoCard;
+exports.default = VideoCard;
+var _c;
+$RefreshReg$(_c, "VideoCard");
+
+  $parcel$ReactRefreshHelpers$273c.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequirec9fe", {}, "./", "/", "http://localhost:1234")
 
 //# sourceMappingURL=Youtube.31b563d9.js.map

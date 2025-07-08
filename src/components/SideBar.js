@@ -8,15 +8,15 @@ const SideBar = () => {
 
   if (!isMenuOpen) return null;
   return (
-    <div className=" flex flex-col items-center gap-4 fixed ml-3 h-screen overflow-y-scroll">
+    <div className=" flex flex-col items-center gap-4 sticky top-20 bottom-0 overflow-x-scroll h-145">
       <ul className="space-y-4 flex flex-col ">
-      <li className="flex gap-4 ml-3 items-center">
+      <li className="flex gap-4 ml-3 items-center hover:cursor-pointer">
         <i className="fa-solid fa-house text-lg "></i> 
         <Link to="/">Home </Link>
 </li>
-       <li className="flex items-center gap-2" ><img className="w-9 inline" alt="" src={SHORTS_LOGO}/>
+       <li className="flex items-center gap-2 hover:cursor-pointer" ><img className="w-9 inline" alt="" src={SHORTS_LOGO}/>
         Shorts</li>
-       <li className="flex items-center">
+       <li className="flex items-center hover:cursor-pointer">
         <img className="w-11 inline -ml-1 " alt="" src={SUBS_LOGO}/> 
         Subscriptions</li>
       </ul>
@@ -25,33 +25,43 @@ const SideBar = () => {
      <div className="space-y-2">
       <h1>You</h1>
        <ul className="space-y-3 flex flex-col">
-        <li className="flex gap-4 items-center">
+        <li className="flex gap-4 items-center hover:cursor-pointer">
         <i className="fa-solid fa-clock-rotate-left text-lg">
         </i>History </li>
-       <li className="flex gap-3 items-center">
+       <li className="flex gap-3 items-cente hover:cursor-pointer">
         <img className="w-6 inline" alt="" src={PLAYLIST_LOGO}/>
          Playlists</li>
-       <li className="flex gap-3 items-center" >
+       <li className="flex gap-3 items-center hover:cursor-pointer" >
         <img className="w-6 inline" alt="" src={YOUR_VIDEOS_LOGO}/>
          Your videos</li>
-       <li className="flex gap-3 items-center">
+       <li className="flex gap-3 items-center hover:cursor-pointer">
         <img className="w-6 inline" alt="" src={WATCH_LATER_LOGO}/>
          Watch later</li>
-       <li className="flex gap-3 items-center">
+       <li className="flex gap-3 items-center hover:cursor-pointer">
         <i className="fa-regular fa-thumbs-up text-xl"></i>
         Liked videos</li>
       </ul>
        </div>
      <hr className="text-gray-200 w-full"></hr>
 
-     <div className="space-y-2">
+     <div className="space-y-2 -ml-6">
       <h2>Explore</h2>
-       <ul className="space-y-3 flex flex-col" >
-        <li><img className="w-12 -ml-3 inline " alt="" src={IMG_TRENDING}/>Trending</li>
-        <li className="flex gap-6 items-center"><i className="fa-solid fa-music text-lg"></i>Music</li>
-       <li className="flex gap-3 items-center"><img className="w-7 inline " alt="" src={GAMING_LOGO}/>Gaming</li>
-       <li className="flex gap-3 items-center"><img className="w-7 inline " alt="" src={NEWS_LOGO}/>News</li>
-       <li className="flex"><img className="w-14 -ml-4 inline" alt="" src={IMG}/>Watch later</li>
+       <ul className="space-y-3 flex flex-col hover:cursor-pointer " >
+        <li><img className="w-12 -ml-3 inline hover:cursor-pointer " alt="" src={IMG_TRENDING}/>Trending</li>
+        <li className="flex gap-6 items-center hover:cursor-pointer"><i className="fa-solid fa-music text-lg"></i>Music</li>
+       <li className="flex gap-3 items-center hover:cursor-pointer"><img className="w-7 inline " alt="" src={GAMING_LOGO}/>Gaming</li>
+       <li className="flex gap-3 items-center hover:cursor-pointer"><img className="w-7 inline " alt="" src={NEWS_LOGO}/>News</li>
+       <li className="flex"><img className="w-14 -ml-4 inline hover:cursor-pointer" alt="" src={IMG}/>Sports</li>
+
+       <li className="flex"><img className="w-14 -ml-4 inline" alt="" src={IMG}/>Sports</li>
+       <li className="flex"><img className="w-14 -ml-4 inline" alt="" src={IMG}/>Sports</li>
+       <li className="flex"><img className="w-14 -ml-4 inline" alt="" src={IMG}/>Sports</li>
+       <li className="flex"><img className="w-14 -ml-4 inline" alt="" src={IMG}/>Sports</li>
+       <li className="flex"><img className="w-14 -ml-4 inline" alt="" src={IMG}/>Sports</li>
+       <li className="flex"><img className="w-14 -ml-4 inline" alt="" src={IMG}/>Sports</li>
+       <li className="flex"><img className="w-14 -ml-4 inline" alt="" src={IMG}/>Sports</li>
+       <li className="flex"><img className="w-14 -ml-4 inline" alt="" src={IMG}/>Sports</li>
+       <li className="flex"><img className="w-14 -ml-4 inline" alt="" src={IMG}/>Sports</li>
       </ul> 
       </div>
     </div>

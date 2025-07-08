@@ -10,4 +10,5 @@ export const NEWS_LOGO ="https://t4.ftcdn.net/jpg/01/03/95/35/360_F_103953529_PC
 const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 export const YOUTUBE_VIDEOS = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=US&key=${API_KEY}`
 export const YOUTUBE_COMMENTS = (videoId, apiKey) =>
-  `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${apiKey}`;
+  `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${apiKey}&maxResults=85`;
+ export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
