@@ -5,7 +5,7 @@ const VideoCard = ({info}) => {
   
   return (
     <div className=''>
-      <img className="rounded-2xl h-50 w-full mb-2"
+      <img className="rounded-2xl w-full mb-2"
       src={thumbnails?.high?.url} alt="video thumbnail" />
       <ul className="space-y-2">
         <li className="font-semibold text-lg">{title}</li>

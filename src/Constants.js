@@ -11,4 +11,4 @@ const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 export const YOUTUBE_VIDEOS = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=US&key=${API_KEY}`
 export const YOUTUBE_COMMENTS = (videoId, apiKey) =>
   `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${apiKey}&maxResults=85`;
- export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
+export const YOUTUBE_SEARCH_API = "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";

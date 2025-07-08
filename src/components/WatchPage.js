@@ -20,7 +20,7 @@ const WatchPage = () => {
   const video = useVideoDetails(videoId);
   if (!video) return <div className="p-8">Loading...</div>; 
   const {snippet, statistics} = video;
-   console.log(videos);
+  
   return (
     <div className="flex justify-around px-2 py-4">
     <div className="pr-4 space-y-2">

@@ -16203,15 +16203,41 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _constants = require("../Constants");
 var _reactRedux = require("react-redux");
 var _appSlice = require("../utils/appSlice");
+var _react = require("react");
+var _searchSlice = require("../utils/searchSlice");
 var _s = $RefreshSig$();
 const Header = ()=>{
     _s();
+    const [searchQuery, setSearchQuery] = (0, _react.useState)("");
+    const [suggestions, setSuggestions] = (0, _react.useState)([]);
+    const [showSuggestions, setShowSuggestions] = (0, _react.useState)(false);
+    const searchCache = (0, _reactRedux.useSelector)((store)=>store.search);
     const dispatch = (0, _reactRedux.useDispatch)();
     const toogleMenuHandle = ()=>{
         dispatch((0, _appSlice.toggleMenu)());
     };
+    (0, _react.useEffect)(()=>{
+        const timer = setTimeout(()=>{
+            if (searchCache[searchQuery]) setSuggestions(searchCache[searchQuery]);
+            else getSearchSuggestions();
+        }, 200);
+        return ()=>{
+            clearTimeout(timer);
+        };
+    }, [
+        searchQuery
+    ]);
+    const getSearchSuggestions = async ()=>{
+        const data = await fetch((0, _constants.YOUTUBE_SEARCH_API) + searchQuery);
+        const json = await data.json();
+        setSuggestions(json[1]);
+        dispatch((0, _searchSlice.cacheResults)({
+            [searchQuery]: json[1]
+        })) //pass an object, because we are storing cache as object, because of 0(1)
+        ;
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "grid grid-cols-12 px-6 py-1 gap-6 sticky top-0 bg-white ",
+        className: "grid grid-cols-12 px-6 py-1 gap-6 sticky top-0 bg-white z-30 ",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "col-span-3 flex items-center gap-4 ",
@@ -16223,7 +16249,7 @@ const Header = ()=>{
                         className: "fa-solid fa-bars text-xl hover:cursor-pointer"
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 13,
+                        lineNumber: 42,
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -16232,66 +16258,113 @@ const Header = ()=>{
                         src: (0, _constants.LOGO)
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 17,
+                        lineNumber: 45,
                         columnNumber: 8
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Header.js",
-                lineNumber: 12,
+                lineNumber: 41,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "col-span-6 flex gap-2  p-3",
+                className: "col-span-6 flex items-center justify-center relative",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "flex w-full",
+                        className: "flex w-full max-w-[600px] relative",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                className: "w-full border border-light-gray  px-5 rounded-l-full",
-                                placeholder: "Search"
+                                className: "w-full border border-gray-300 px-4 py-2 rounded-l-full focus:outline-none focus:ring-1 focus:ring-gray-400",
+                                placeholder: "Search",
+                                value: searchQuery,
+                                onChange: (e)=>setSearchQuery(e.target.value),
+                                onFocus: ()=>{
+                                    setShowSuggestions(true);
+                                },
+                                onBlur: ()=>{
+                                    setShowSuggestions(false);
+                                }
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 22,
-                                columnNumber: 9
+                                lineNumber: 49,
+                                columnNumber: 5
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "bg-gray-100 border border-gray-300 px-6 rounded-r-full hover:bg-gray-200",
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                    className: "fa-solid fa-magnifying-glass bg-gray-100 border border-light-gray text-gray-600 px-6 py-3 text-xl rounded-r-full  hover:cursor-pointer"
+                                    className: "fa-solid fa-magnifying-glass text-gray-600 text-xl"
                                 }, void 0, false, {
                                     fileName: "src/components/Header.js",
-                                    lineNumber: 25,
-                                    columnNumber: 11
+                                    lineNumber: 59,
+                                    columnNumber: 7
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 24,
+                                lineNumber: 58,
+                                columnNumber: 5
+                            }, undefined),
+                            showSuggestions && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "absolute top-full w-132 bg-white shadow-lg rounded-lg ",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                                    className: "p-2 flex flex-col",
+                                    children: suggestions.map((s)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "flex gap-2 p-2 items-center hover:bg-gray-100 cursor-pointer",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                    className: "fa-solid fa-magnifying-glass text-gray-400 text-sm"
+                                                }, void 0, false, {
+                                                    fileName: "src/components/Header.js",
+                                                    lineNumber: 68,
+                                                    columnNumber: 11
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                                    children: s
+                                                }, void 0, false, {
+                                                    fileName: "src/components/Header.js",
+                                                    lineNumber: 69,
+                                                    columnNumber: 11
+                                                }, undefined)
+                                            ]
+                                        }, s, true, {
+                                            fileName: "src/components/Header.js",
+                                            lineNumber: 67,
+                                            columnNumber: 17
+                                        }, undefined))
+                                }, void 0, false, {
+                                    fileName: "src/components/Header.js",
+                                    lineNumber: 65,
+                                    columnNumber: 9
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/Header.js",
+                                lineNumber: 64,
                                 columnNumber: 9
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 21,
-                        columnNumber: 8
+                        lineNumber: 48,
+                        columnNumber: 6
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "ml-3 bg-gray-100 p-3 rounded-full hover:bg-gray-200",
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                            className: "fa-solid fa-microphone bg-gray-100 py-3 px-4 text-lg rounded-full hover:cursor-pointer"
+                            className: "fa-solid fa-microphone text-lg text-gray-700"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 31,
-                            columnNumber: 9
+                            lineNumber: 81,
+                            columnNumber: 5
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 30,
-                        columnNumber: 8
+                        lineNumber: 80,
+                        columnNumber: 3
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Header.js",
-                lineNumber: 20,
-                columnNumber: 7
+                lineNumber: 47,
+                columnNumber: 5
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "col-span-3 flex items-center  gap-6 justify-end ",
@@ -16304,14 +16377,14 @@ const Header = ()=>{
                                 children: "+"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 38,
+                                lineNumber: 88,
                                 columnNumber: 9
                             }, undefined),
                             "Create"
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 37,
+                        lineNumber: 87,
                         columnNumber: 8
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -16319,36 +16392,37 @@ const Header = ()=>{
                             className: "fa-solid fa-bell text-xl hover:cursor-pointer"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 42,
+                            lineNumber: 92,
                             columnNumber: 9
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 41,
+                        lineNumber: 91,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                         className: "fa-regular fa-user text-md border rounded-full px-3 py-2.5 hover:cursor-pointer"
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 44,
+                        lineNumber: 94,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Header.js",
-                lineNumber: 36,
+                lineNumber: 86,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Header.js",
-        lineNumber: 11,
+        lineNumber: 40,
         columnNumber: 5
     }, undefined);
 };
-_s(Header, "rgTLoBID190wEKCp9+G8W6F7A5M=", false, function() {
+_s(Header, "K5J/ZvKscqk2dIio8TQfvtAnDK0=", false, function() {
     return [
+        (0, _reactRedux.useSelector),
         (0, _reactRedux.useDispatch)
     ];
 });
@@ -16362,7 +16436,7 @@ $RefreshReg$(_c, "Header");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","../Constants":"hwDSF","react-redux":"hbNxT","../utils/appSlice":"cVNx9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"hwDSF":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","../Constants":"hwDSF","react-redux":"hbNxT","../utils/appSlice":"cVNx9","react":"jMk1U","../utils/searchSlice":"lY7Po","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"hwDSF":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "LOGO", ()=>LOGO);
@@ -16390,7 +16464,7 @@ const API_KEY = "AIzaSyAGlhwa-3CD81dDi6R9ZcbH90XDjS3dcFU";
 const YOUTUBE_VIDEOS = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=US&key=${API_KEY}`;
 const YOUTUBE_COMMENTS = (videoId, apiKey)=>`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${apiKey}&maxResults=85`;
 _c = YOUTUBE_COMMENTS;
-const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+const YOUTUBE_SEARCH_API = "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 var _c;
 $RefreshReg$(_c, "YOUTUBE_COMMENTS");
 
@@ -21412,7 +21486,27 @@ function createThunkMiddleware(extraArgument) {
 var thunk = createThunkMiddleware();
 var withExtraArgument = createThunkMiddleware;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7h6Pi":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"lY7Po":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "cacheResults", ()=>cacheResults);
+var _toolkit = require("@reduxjs/toolkit");
+const searchSlice = (0, _toolkit.createSlice)({
+    name: "search",
+    initialState: {
+    },
+    reducers: {
+        cacheResults: (state, action)=>{
+            state = Object.assign(state, action.payload) //mutate state
+            ;
+        //{...action.payload, ...state} not taking it, figure out
+        }
+    }
+});
+const { cacheResults } = searchSlice.actions;
+exports.default = searchSlice.reducer;
+
+},{"@reduxjs/toolkit":"fKS5f","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7h6Pi":[function(require,module,exports,__globalThis) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -34127,14 +34221,17 @@ parcelHelpers.defineInteropFlag(exports);
 var _toolkit = require("@reduxjs/toolkit");
 var _appSlice = require("./appSlice");
 var _appSliceDefault = parcelHelpers.interopDefault(_appSlice);
+var _searchSlice = require("./searchSlice");
+var _searchSliceDefault = parcelHelpers.interopDefault(_searchSlice);
 const store = (0, _toolkit.configureStore)({
     reducer: {
-        app: (0, _appSliceDefault.default)
+        app: (0, _appSliceDefault.default),
+        search: (0, _searchSliceDefault.default)
     }
 });
 exports.default = store;
 
-},{"@reduxjs/toolkit":"fKS5f","./appSlice":"cVNx9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6RgVA":[function(require,module,exports,__globalThis) {
+},{"@reduxjs/toolkit":"fKS5f","./appSlice":"cVNx9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./searchSlice":"lY7Po"}],"6RgVA":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$acc6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$acc6.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -34176,7 +34273,6 @@ const WatchPage = ()=>{
         columnNumber: 22
     }, undefined);
     const { snippet, statistics } = video;
-    console.log(videos);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "flex justify-around px-2 py-4",
         children: [
@@ -34681,7 +34777,7 @@ var _button = require("./Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 const OptionsSection = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "overflow-x-auto whitespace-nowrap space-x-2 fixed bg-white -mt-6 py-4",
+        className: "overflow-x-auto whitespace-nowrap space-x-2 fixed bg-white -mt-6 py-4 z-10",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 className: "inline-block text-sm px-4 py-2 bg-black text-white rounded-md hover:cursor-pointer",
