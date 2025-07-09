@@ -34342,6 +34342,7 @@ const WatchPage = ()=>{
     const comments = (0, _useVideoCommentsDefault.default)(videoId);
     const video = (0, _useVideoDetailsDefault.default)(videoId);
     const [count, setCount] = (0, _react.useState)(0);
+    const [liked, setLiked] = (0, _react.useState)(false);
     (0, _react.useEffect)(()=>{
         if (video?.statistics?.likeCount) setCount(Number(video.statistics.likeCount));
     }, [
@@ -34355,13 +34356,18 @@ const WatchPage = ()=>{
         children: "Loading..."
     }, void 0, false, {
         fileName: "src/components/WatchPage.js",
-        lineNumber: 31,
+        lineNumber: 32,
         columnNumber: 22
     }, undefined);
     const { snippet, statistics } = video;
     console.log(video);
     const handleLikeCount = ()=>{
-        setCount((prev)=>prev + 1); // ✅ Increments like count
+        if (!liked) setCount((prev)=>prev + 1);
+        setLiked(true);
+    };
+    const handleUnlikeCount = ()=>{
+        setLiked(false);
+        setCount((prev)=>prev - 1);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "flex justify-around px-2 py-4",
@@ -34380,7 +34386,7 @@ const WatchPage = ()=>{
                         allowFullScreen: true
                     }, void 0, false, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 42,
+                        lineNumber: 51,
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34394,7 +34400,7 @@ const WatchPage = ()=>{
                                         children: snippet.title
                                     }, void 0, false, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 48,
+                                        lineNumber: 57,
                                         columnNumber: 12
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -34402,13 +34408,13 @@ const WatchPage = ()=>{
                                         children: snippet.channelTitle
                                     }, void 0, false, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 49,
+                                        lineNumber: 58,
                                         columnNumber: 12
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/WatchPage.js",
-                                lineNumber: 47,
+                                lineNumber: 56,
                                 columnNumber: 9
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34424,10 +34430,10 @@ const WatchPage = ()=>{
                                                         onClick: ()=>{
                                                             handleLikeCount();
                                                         },
-                                                        className: "fa-regular fa-thumbs-up hover:cursor-pointer active:text-sm"
+                                                        className: `fa-regular fa-thumbs-up hover:cursor-pointer active:text-sm ${liked ? "text-blue-800" : "text-black"}`
                                                     }, void 0, false, {
                                                         fileName: "src/components/WatchPage.js",
-                                                        lineNumber: 55,
+                                                        lineNumber: 64,
                                                         columnNumber: 15
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -34435,33 +34441,36 @@ const WatchPage = ()=>{
                                                         children: count
                                                     }, void 0, false, {
                                                         fileName: "src/components/WatchPage.js",
-                                                        lineNumber: 59,
+                                                        lineNumber: 68,
                                                         columnNumber: 15
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/components/WatchPage.js",
-                                                lineNumber: 54,
+                                                lineNumber: 63,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 children: "|"
                                             }, void 0, false, {
                                                 fileName: "src/components/WatchPage.js",
-                                                lineNumber: 61,
+                                                lineNumber: 70,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                onClick: ()=>{
+                                                    handleUnlikeCount();
+                                                },
                                                 className: "fa-regular fa-thumbs-down hover:cursor-pointer active:text-sm"
                                             }, void 0, false, {
                                                 fileName: "src/components/WatchPage.js",
-                                                lineNumber: 62,
+                                                lineNumber: 71,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 53,
+                                        lineNumber: 62,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34472,7 +34481,7 @@ const WatchPage = ()=>{
                                                 src: "https://cdn-icons-png.flaticon.com/512/6469/6469436.png"
                                             }, void 0, false, {
                                                 fileName: "src/components/WatchPage.js",
-                                                lineNumber: 65,
+                                                lineNumber: 76,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -34480,20 +34489,20 @@ const WatchPage = ()=>{
                                                 children: "Share"
                                             }, void 0, false, {
                                                 fileName: "src/components/WatchPage.js",
-                                                lineNumber: 66,
+                                                lineNumber: 77,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 64,
+                                        lineNumber: 75,
                                         columnNumber: 14
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                         className: "fa-solid fa-arrow-down hover:cursor-pointer"
                                     }, void 0, false, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 68,
+                                        lineNumber: 79,
                                         columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -34501,19 +34510,19 @@ const WatchPage = ()=>{
                                         children: "..."
                                     }, void 0, false, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 69,
+                                        lineNumber: 80,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/WatchPage.js",
-                                lineNumber: 52,
+                                lineNumber: 61,
                                 columnNumber: 8
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 46,
+                        lineNumber: 55,
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34527,20 +34536,20 @@ const WatchPage = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/WatchPage.js",
-                                lineNumber: 74,
+                                lineNumber: 85,
                                 columnNumber: 7
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                 children: snippet.description
                             }, void 0, false, {
                                 fileName: "src/components/WatchPage.js",
-                                lineNumber: 75,
+                                lineNumber: 86,
                                 columnNumber: 7
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 73,
+                        lineNumber: 84,
                         columnNumber: 7
                     }, undefined),
                     comments && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _commentsSectionDefault.default), {
@@ -34548,13 +34557,13 @@ const WatchPage = ()=>{
                         videoData: video
                     }, void 0, false, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 80,
+                        lineNumber: 91,
                         columnNumber: 6
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/WatchPage.js",
-                lineNumber: 41,
+                lineNumber: 50,
                 columnNumber: 5
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34565,27 +34574,27 @@ const WatchPage = ()=>{
                             info: vid
                         }, vid.id, false, {
                             fileName: "src/components/WatchPage.js",
-                            lineNumber: 89,
+                            lineNumber: 100,
                             columnNumber: 11
                         }, undefined)
                     }, vid.id, false, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 88,
+                        lineNumber: 99,
                         columnNumber: 13
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/WatchPage.js",
-                lineNumber: 86,
+                lineNumber: 97,
                 columnNumber: 10
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/WatchPage.js",
-        lineNumber: 40,
+        lineNumber: 49,
         columnNumber: 5
     }, undefined);
 };
-_s(WatchPage, "hRdFDEPI9VEeb9WatzNOJAAcfqw=", false, function() {
+_s(WatchPage, "1SXLkTOvjw4UxeO+m1PP/t5qFXM=", false, function() {
     return [
         (0, _reactRedux.useDispatch),
         (0, _useFetchVideosDefault.default),

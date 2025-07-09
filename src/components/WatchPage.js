@@ -17,6 +17,7 @@ const WatchPage = () => {
   const comments = useVideoComments(videoId);
   const video = useVideoDetails(videoId);
   const [count, setCount] = useState(0);
+  const [liked, setLiked] = useState(false);
 
   useEffect(() => {
   if (video?.statistics?.likeCount) {
@@ -34,8 +35,16 @@ const WatchPage = () => {
   
   
   const handleLikeCount = () => {
-  setCount(prev => prev + 1); // ✅ Increments like count
+    if(!liked)
+    setCount(prev => prev + 1); 
+    setLiked(true)
 };
+
+  const handleUnlikeCount =() => {
+    setLiked(false)
+    setCount(prev => prev - 1 )
+  }
+
   return (
     <div className="flex justify-around px-2 py-4">
     <div className="pr-4 space-y-2">
@@ -55,11 +64,13 @@ const WatchPage = () => {
               <i onClick={() => {
                 handleLikeCount();
               }}
-               className="fa-regular fa-thumbs-up hover:cursor-pointer active:text-sm"></i>
+               className={`fa-regular fa-thumbs-up hover:cursor-pointer active:text-sm ${liked ? "text-blue-800" : "text-black"}`}></i>
               <span className="text-sm">{count}</span>
               </div>
               <span>|</span>
-              <i className="fa-regular fa-thumbs-down hover:cursor-pointer active:text-sm"></i>
+              <i onClick={() => {
+                 handleUnlikeCount();
+               } } className="fa-regular fa-thumbs-down hover:cursor-pointer active:text-sm"></i>
              </div>
              <div className="flex items-center gap-2 bg-gray-200 rounded-3xl px-4 py-2 hover:cursor-pointer">
               <img className="w-6" src="https://cdn-icons-png.flaticon.com/512/6469/6469436.png"/>
