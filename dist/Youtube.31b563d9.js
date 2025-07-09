@@ -16236,12 +16236,11 @@ const Header = ()=>{
         })) //pass an object, because storing cache as object, because of 0(1)
         ;
     };
-    (0, _react.useEffect)(()=>{
-        console.log("Search Cache Keys:", Object.keys(searchCache));
-        console.log("Cache Size:", Object.keys(searchCache).length);
-    }, [
-        searchCache
-    ]);
+    const handleSearch = ()=>{
+        if (!searchQuery.trim()) return;
+        dispatch((0, _searchSlice.setSearchTerm)(searchQuery));
+        console.log("Searching for:", searchQuery);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "grid grid-cols-12 px-6 py-1 gap-6 sticky top-0 bg-white z-30 ",
         children: [
@@ -16255,7 +16254,7 @@ const Header = ()=>{
                         className: "fa-solid fa-bars text-xl hover:cursor-pointer"
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 46,
+                        lineNumber: 48,
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -16264,13 +16263,13 @@ const Header = ()=>{
                         src: (0, _constants.LOGO)
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 49,
+                        lineNumber: 51,
                         columnNumber: 8
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Header.js",
-                lineNumber: 45,
+                lineNumber: 47,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -16292,21 +16291,22 @@ const Header = ()=>{
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 53,
+                                lineNumber: 55,
                                 columnNumber: 5
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                onClick: ()=>handleSearch(),
                                 className: "bg-gray-100 border border-gray-300 px-6 rounded-r-full hover:bg-gray-200",
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                     className: "fa-solid fa-magnifying-glass text-gray-600 text-xl"
                                 }, void 0, false, {
                                     fileName: "src/components/Header.js",
-                                    lineNumber: 63,
+                                    lineNumber: 65,
                                     columnNumber: 7
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 62,
+                                lineNumber: 64,
                                 columnNumber: 5
                             }, undefined),
                             showSuggestions && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -16320,36 +16320,36 @@ const Header = ()=>{
                                                     className: "fa-solid fa-magnifying-glass text-gray-400 text-sm"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Header.js",
-                                                    lineNumber: 72,
+                                                    lineNumber: 74,
                                                     columnNumber: 11
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                                     children: s
                                                 }, void 0, false, {
                                                     fileName: "src/components/Header.js",
-                                                    lineNumber: 73,
+                                                    lineNumber: 75,
                                                     columnNumber: 11
                                                 }, undefined)
                                             ]
                                         }, s, true, {
                                             fileName: "src/components/Header.js",
-                                            lineNumber: 71,
+                                            lineNumber: 73,
                                             columnNumber: 17
                                         }, undefined))
                                 }, void 0, false, {
                                     fileName: "src/components/Header.js",
-                                    lineNumber: 69,
+                                    lineNumber: 71,
                                     columnNumber: 9
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 68,
+                                lineNumber: 70,
                                 columnNumber: 9
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 52,
+                        lineNumber: 54,
                         columnNumber: 6
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -16358,18 +16358,18 @@ const Header = ()=>{
                             className: "fa-solid fa-microphone text-lg text-gray-700"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 84,
+                            lineNumber: 86,
                             columnNumber: 5
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 83,
+                        lineNumber: 85,
                         columnNumber: 3
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Header.js",
-                lineNumber: 51,
+                lineNumber: 53,
                 columnNumber: 5
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -16422,11 +16422,11 @@ const Header = ()=>{
         ]
     }, void 0, true, {
         fileName: "src/components/Header.js",
-        lineNumber: 44,
+        lineNumber: 46,
         columnNumber: 5
     }, undefined);
 };
-_s(Header, "2JQb3mvnHd2OkG33L0B1iBFJFbQ=", false, function() {
+_s(Header, "K5J/ZvKscqk2dIio8TQfvtAnDK0=", false, function() {
     return [
         (0, _reactRedux.useSelector),
         (0, _reactRedux.useDispatch)
@@ -21496,21 +21496,28 @@ var withExtraArgument = createThunkMiddleware;
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "cacheResults", ()=>cacheResults);
+parcelHelpers.export(exports, "setSearchTerm", ()=>setSearchTerm);
 var _toolkit = require("@reduxjs/toolkit");
 var _lruCache = require("./lruCache");
-const lru = new (0, _lruCache.LRUCache)(50); // limit cache to 10 items
+const lru = new (0, _lruCache.LRUCache)(50); // limit cache to 50 items
 const searchSlice = (0, _toolkit.createSlice)({
     name: "search",
-    initialState: lru.toObject(),
+    initialState: {
+        cache: lru.toObject(),
+        searchTerm: ""
+    },
     reducers: {
         cacheResults: (state, action)=>{
             const [key, value] = Object.entries(action.payload)[0];
             lru.put(key, value);
-            return lru.toObject(); // overwrite state with latest cache state
+            state.cache = lru.toObject(); //  update cache
+        },
+        setSearchTerm: (state, action)=>{
+            state.searchTerm = action.payload; // update searchTerm
         }
     }
 });
-const { cacheResults } = searchSlice.actions;
+const { cacheResults, setSearchTerm } = searchSlice.actions;
 exports.default = searchSlice.reducer;
 
 },{"@reduxjs/toolkit":"fKS5f","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./lruCache":"iWzHR"}],"iWzHR":[function(require,module,exports,__globalThis) {
@@ -35150,44 +35157,57 @@ var _useFetchVideosDefault = parcelHelpers.interopDefault(_useFetchVideos);
 var _videoCard = require("./videoCard");
 var _videoCardDefault = parcelHelpers.interopDefault(_videoCard);
 var _reactRouter = require("react-router");
+var _reactRedux = require("react-redux");
 var _s = $RefreshSig$();
 const VideosSection = ({ info })=>{
     _s();
     const videos = (0, _useFetchVideosDefault.default)();
+    const searchTerm = (0, _reactRedux.useSelector)((store)=>store.search.searchTerm);
+    console.log("this is" + searchTerm);
+    console.log(videos);
+    const searchedVideos = searchTerm ? videos.filter((vid)=>vid.snippet.title.toLowerCase().includes(searchTerm.toLowerCase())) : videos;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "grid grid-cols-3 gap-x-4 gap-y-7 mt-15",
-        children: videos.length > 0 ? videos.map((vid)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Link), {
+        children: videos.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+            children: "Loading..."
+        }, void 0, false, {
+            fileName: "src/components/VideosSection.js",
+            lineNumber: 18,
+            columnNumber: 7
+        }, undefined) : searchedVideos.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+            className: "col-span-3 text-center text-gray-500 text-lg ",
+            children: "No videos found"
+        }, void 0, false, {
+            fileName: "src/components/VideosSection.js",
+            lineNumber: 20,
+            columnNumber: 7
+        }, undefined) : searchedVideos.map((vid)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Link), {
                 to: "/watch?v=" + vid.id,
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _videoCardDefault.default), {
                         info: vid
                     }, vid.id, false, {
                         fileName: "src/components/VideosSection.js",
-                        lineNumber: 14,
+                        lineNumber: 23,
                         columnNumber: 11
                     }, undefined),
                     " "
                 ]
             }, vid.id, true, {
                 fileName: "src/components/VideosSection.js",
-                lineNumber: 13,
-                columnNumber: 29
-            }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-            children: "Loading..."
-        }, void 0, false, {
-            fileName: "src/components/VideosSection.js",
-            lineNumber: 17,
-            columnNumber: 9
-        }, undefined)
+                lineNumber: 22,
+                columnNumber: 37
+            }, undefined))
     }, void 0, false, {
         fileName: "src/components/VideosSection.js",
-        lineNumber: 10,
+        lineNumber: 15,
         columnNumber: 5
     }, undefined);
 };
-_s(VideosSection, "UfuEEQnLPXRwfBumCHrNDOaSLWc=", false, function() {
+_s(VideosSection, "HZNNAZQZFNpyh5rMlXWABdBx8uo=", false, function() {
     return [
-        (0, _useFetchVideosDefault.default)
+        (0, _useFetchVideosDefault.default),
+        (0, _reactRedux.useSelector)
     ];
 });
 _c = VideosSection;
@@ -35200,7 +35220,7 @@ $RefreshReg$(_c, "VideosSection");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","../utils/useFetchVideos":"jFsia","./videoCard":"1gO11","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"1gO11":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","../utils/useFetchVideos":"jFsia","./videoCard":"1gO11","react-router":"2jawN","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi","react-redux":"hbNxT"}],"1gO11":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$273c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$273c.init();
 var prevRefreshReg = globalThis.$RefreshReg$;

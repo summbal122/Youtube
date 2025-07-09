@@ -2,7 +2,7 @@ import {LOGO, YOUTUBE_SEARCH_API} from "../Constants"
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { useEffect, useState } from "react";
-import { cacheResults } from "../utils/searchSlice";
+import { cacheResults, setSearchTerm } from "../utils/searchSlice";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -35,11 +35,13 @@ const Header = () => {
      [searchQuery] : json[1]
     })) //pass an object, because storing cache as object, because of 0(1)
   }
-  useEffect(() => {
-  console.log("Search Cache Keys:", Object.keys(searchCache));
-  console.log("Cache Size:", Object.keys(searchCache).length);
-}, [searchCache]);
+  const handleSearch= () => {
+    if (!searchQuery.trim()) return;
+    dispatch(setSearchTerm(searchQuery));
+    
+    console.log("Searching for:", searchQuery);
 
+  }
   return (
     <div className="grid grid-cols-12 px-6 py-1 gap-6 sticky top-0 bg-white z-30 ">
       <div className="col-span-3 flex items-center gap-4 ">
@@ -59,7 +61,7 @@ const Header = () => {
       onBlur={() => {setShowSuggestions(false)}}
 
     />
-    <button className="bg-gray-100 border border-gray-300 px-6 rounded-r-full hover:bg-gray-200">
+    <button  onClick={()=> handleSearch()} className="bg-gray-100 border border-gray-300 px-6 rounded-r-full hover:bg-gray-200">
       <i className="fa-solid fa-magnifying-glass text-gray-600 text-xl"></i>
     </button>
 
@@ -84,8 +86,6 @@ const Header = () => {
     <i className="fa-solid fa-microphone text-lg text-gray-700"></i>
   </button>
 </div>
-
-
       <div className="col-span-3 flex items-center  gap-6 justify-end ">
        <button className="flex items-center justify-center text-md gap-2 bg-gray-100 px-4 py-1 rounded-full hover:cursor-pointer">
         <span className="text-3xl text-black font-thin">+</span>
