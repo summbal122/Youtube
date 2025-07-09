@@ -1,16 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { LRUCache } from "./lruCache";
 
-const searchSlice= createSlice({
-  name:"search",
-  initialState : {
-  //empty object because 0(1)
-  },
-  reducers : {
+const lru = new LRUCache(50); // limit cache to 10 items
+
+const searchSlice = createSlice({
+  name: "search",
+  initialState: lru.toObject(), // init as empty object
+  reducers: {
     cacheResults: (state, action) => {
-    state= Object.assign(state, action.payload) //mutate state
-     //{...action.payload, ...state} not taking it, figure out
+      const [key, value] = Object.entries(action.payload)[0];
+      lru.put(key, value);
+      return lru.toObject(); // overwrite state with latest cache state
     }
   }
-})
-export const {cacheResults} = searchSlice.actions;
+});
+
+export const { cacheResults } = searchSlice.actions;
 export default searchSlice.reducer;

@@ -15,7 +15,7 @@ const useVideoDetails = (videoId) => {
     };
 
     fetchVideoDetails();
-  }, []);
+  }, [videoId]);
 
   return video;
 };

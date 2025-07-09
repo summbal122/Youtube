@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { useEffect, useState } from "react";
 import { cacheResults } from "../utils/searchSlice";
+
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -32,10 +33,13 @@ const Header = () => {
     setSuggestions(json[1]);
     dispatch(cacheResults({
      [searchQuery] : json[1]
-    })) //pass an object, because we are storing cache as object, because of 0(1)
-    
+    })) //pass an object, because storing cache as object, because of 0(1)
   }
-  
+  useEffect(() => {
+  console.log("Search Cache Keys:", Object.keys(searchCache));
+  console.log("Cache Size:", Object.keys(searchCache).length);
+}, [searchCache]);
+
   return (
     <div className="grid grid-cols-12 px-6 py-1 gap-6 sticky top-0 bg-white z-30 ">
       <div className="col-span-3 flex items-center gap-4 ">
@@ -47,7 +51,7 @@ const Header = () => {
     <div className="col-span-6 flex items-center justify-center relative">
      <div className="flex w-full max-w-[600px] relative">
     <input
-      className="w-full border border-gray-300 px-4 py-2 rounded-l-full focus:outline-none focus:ring-1 focus:ring-gray-400"
+      className="w-full border border-gray-300 px-4 py-2 rounded-l-full focus:outline-none"
       placeholder="Search"
       value={searchQuery}
       onChange={(e) => setSearchQuery(e.target.value)}
@@ -72,7 +76,6 @@ const Header = () => {
         </ul>
       </div>
       )}
-
   
   </div>
 

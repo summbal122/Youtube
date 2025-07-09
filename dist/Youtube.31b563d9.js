@@ -16233,9 +16233,15 @@ const Header = ()=>{
         setSuggestions(json[1]);
         dispatch((0, _searchSlice.cacheResults)({
             [searchQuery]: json[1]
-        })) //pass an object, because we are storing cache as object, because of 0(1)
+        })) //pass an object, because storing cache as object, because of 0(1)
         ;
     };
+    (0, _react.useEffect)(()=>{
+        console.log("Search Cache Keys:", Object.keys(searchCache));
+        console.log("Cache Size:", Object.keys(searchCache).length);
+    }, [
+        searchCache
+    ]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "grid grid-cols-12 px-6 py-1 gap-6 sticky top-0 bg-white z-30 ",
         children: [
@@ -16249,7 +16255,7 @@ const Header = ()=>{
                         className: "fa-solid fa-bars text-xl hover:cursor-pointer"
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 42,
+                        lineNumber: 46,
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -16258,13 +16264,13 @@ const Header = ()=>{
                         src: (0, _constants.LOGO)
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 45,
+                        lineNumber: 49,
                         columnNumber: 8
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Header.js",
-                lineNumber: 41,
+                lineNumber: 45,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -16274,7 +16280,7 @@ const Header = ()=>{
                         className: "flex w-full max-w-[600px] relative",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                className: "w-full border border-gray-300 px-4 py-2 rounded-l-full focus:outline-none focus:ring-1 focus:ring-gray-400",
+                                className: "w-full border border-gray-300 px-4 py-2 rounded-l-full focus:outline-none",
                                 placeholder: "Search",
                                 value: searchQuery,
                                 onChange: (e)=>setSearchQuery(e.target.value),
@@ -16286,7 +16292,7 @@ const Header = ()=>{
                                 }
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 49,
+                                lineNumber: 53,
                                 columnNumber: 5
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -16295,12 +16301,12 @@ const Header = ()=>{
                                     className: "fa-solid fa-magnifying-glass text-gray-600 text-xl"
                                 }, void 0, false, {
                                     fileName: "src/components/Header.js",
-                                    lineNumber: 59,
+                                    lineNumber: 63,
                                     columnNumber: 7
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 58,
+                                lineNumber: 62,
                                 columnNumber: 5
                             }, undefined),
                             showSuggestions && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -16314,36 +16320,36 @@ const Header = ()=>{
                                                     className: "fa-solid fa-magnifying-glass text-gray-400 text-sm"
                                                 }, void 0, false, {
                                                     fileName: "src/components/Header.js",
-                                                    lineNumber: 68,
+                                                    lineNumber: 72,
                                                     columnNumber: 11
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                                     children: s
                                                 }, void 0, false, {
                                                     fileName: "src/components/Header.js",
-                                                    lineNumber: 69,
+                                                    lineNumber: 73,
                                                     columnNumber: 11
                                                 }, undefined)
                                             ]
                                         }, s, true, {
                                             fileName: "src/components/Header.js",
-                                            lineNumber: 67,
+                                            lineNumber: 71,
                                             columnNumber: 17
                                         }, undefined))
                                 }, void 0, false, {
                                     fileName: "src/components/Header.js",
-                                    lineNumber: 65,
+                                    lineNumber: 69,
                                     columnNumber: 9
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 64,
+                                lineNumber: 68,
                                 columnNumber: 9
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 48,
+                        lineNumber: 52,
                         columnNumber: 6
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -16352,18 +16358,18 @@ const Header = ()=>{
                             className: "fa-solid fa-microphone text-lg text-gray-700"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 81,
+                            lineNumber: 84,
                             columnNumber: 5
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 80,
+                        lineNumber: 83,
                         columnNumber: 3
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Header.js",
-                lineNumber: 47,
+                lineNumber: 51,
                 columnNumber: 5
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -16377,14 +16383,14 @@ const Header = ()=>{
                                 children: "+"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 88,
+                                lineNumber: 91,
                                 columnNumber: 9
                             }, undefined),
                             "Create"
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 87,
+                        lineNumber: 90,
                         columnNumber: 8
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -16392,35 +16398,35 @@ const Header = ()=>{
                             className: "fa-solid fa-bell text-xl hover:cursor-pointer"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 92,
+                            lineNumber: 95,
                             columnNumber: 9
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 91,
+                        lineNumber: 94,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                         className: "fa-regular fa-user text-md border rounded-full px-3 py-2.5 hover:cursor-pointer"
                     }, void 0, false, {
                         fileName: "src/components/Header.js",
-                        lineNumber: 94,
+                        lineNumber: 97,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Header.js",
-                lineNumber: 86,
+                lineNumber: 89,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Header.js",
-        lineNumber: 40,
+        lineNumber: 44,
         columnNumber: 5
     }, undefined);
 };
-_s(Header, "K5J/ZvKscqk2dIio8TQfvtAnDK0=", false, function() {
+_s(Header, "2JQb3mvnHd2OkG33L0B1iBFJFbQ=", false, function() {
     return [
         (0, _reactRedux.useSelector),
         (0, _reactRedux.useDispatch)
@@ -16460,7 +16466,7 @@ const YOUR_VIDEOS_LOGO = "https://img.icons8.com/ios7/512/youtube-play.png";
 const TRENDING_LOGO = "https://static.vecteezy.com/system/resources/previews/000/580/752/non_2x/fire-flame-logo-template-vector-icon-oil-gas-and-energy-logo.jpg";
 const GAMING_LOGO = "https://cdn-icons-png.flaticon.com/512/7708/7708371.png";
 const NEWS_LOGO = "https://t4.ftcdn.net/jpg/01/03/95/35/360_F_103953529_PCEL52QBWBkKnoXD2l9ZFNOEcdm5PARf.jpg";
-const API_KEY = "AIzaSyAGlhwa-3CD81dDi6R9ZcbH90XDjS3dcFU";
+const API_KEY = "AIzaSyBOs6hfgSUrWmCV_wgT8Ih1LkgVbXD-W04";
 const YOUTUBE_VIDEOS = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=US&key=${API_KEY}`;
 const YOUTUBE_COMMENTS = (videoId, apiKey)=>`https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${apiKey}&maxResults=85`;
 _c = YOUTUBE_COMMENTS;
@@ -21491,22 +21497,85 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "cacheResults", ()=>cacheResults);
 var _toolkit = require("@reduxjs/toolkit");
+var _lruCache = require("./lruCache");
+const lru = new (0, _lruCache.LRUCache)(50); // limit cache to 10 items
 const searchSlice = (0, _toolkit.createSlice)({
     name: "search",
-    initialState: {
-    },
+    initialState: lru.toObject(),
     reducers: {
         cacheResults: (state, action)=>{
-            state = Object.assign(state, action.payload) //mutate state
-            ;
-        //{...action.payload, ...state} not taking it, figure out
+            const [key, value] = Object.entries(action.payload)[0];
+            lru.put(key, value);
+            return lru.toObject(); // overwrite state with latest cache state
         }
     }
 });
 const { cacheResults } = searchSlice.actions;
 exports.default = searchSlice.reducer;
 
-},{"@reduxjs/toolkit":"fKS5f","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7h6Pi":[function(require,module,exports,__globalThis) {
+},{"@reduxjs/toolkit":"fKS5f","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./lruCache":"iWzHR"}],"iWzHR":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "LRUCache", ()=>LRUCache);
+class Node {
+    constructor(key, value){
+        this.key = key;
+        this.value = value;
+        this.prev = null;
+        this.next = null;
+    }
+}
+class LRUCache {
+    constructor(limit = 10){
+        this.limit = limit;
+        this.map = new Map();
+        this.head = null;
+        this.tail = null;
+    }
+    get(key) {
+        const node = this.map.get(key);
+        if (!node) return null;
+        // Move to front (most recently used)
+        this._remove(node);
+        this._addToFront(node);
+        return node.value;
+    }
+    put(key, value) {
+        if (this.map.has(key)) this._remove(this.map.get(key));
+        const node = new Node(key, value);
+        this._addToFront(node);
+        this.map.set(key, node);
+        if (this.map.size > this.limit) {
+            // Remove LRU
+            this.map.delete(this.tail.key);
+            this._remove(this.tail);
+        }
+    }
+    toObject() {
+        const obj = {};
+        let current = this.head;
+        while(current){
+            obj[current.key] = current.value;
+            current = current.next;
+        }
+        return obj;
+    }
+    _addToFront(node) {
+        node.next = this.head;
+        node.prev = null;
+        if (this.head) this.head.prev = node;
+        this.head = node;
+        if (!this.tail) this.tail = node;
+    }
+    _remove(node) {
+        if (node.prev) node.prev.next = node.next;
+        else this.head = node.next;
+        if (node.next) node.next.prev = node.prev;
+        else this.tail = node.prev;
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7h6Pi":[function(require,module,exports,__globalThis) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -34231,7 +34300,7 @@ const store = (0, _toolkit.configureStore)({
 });
 exports.default = store;
 
-},{"@reduxjs/toolkit":"fKS5f","./appSlice":"cVNx9","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./searchSlice":"lY7Po"}],"6RgVA":[function(require,module,exports,__globalThis) {
+},{"@reduxjs/toolkit":"fKS5f","./appSlice":"cVNx9","./searchSlice":"lY7Po","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6RgVA":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$acc6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$acc6.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -34252,27 +34321,41 @@ var _useVideoComments = require("../utils/useVideoComments");
 var _useVideoCommentsDefault = parcelHelpers.interopDefault(_useVideoComments);
 var _useFetchVideos = require("../utils/useFetchVideos");
 var _useFetchVideosDefault = parcelHelpers.interopDefault(_useFetchVideos);
+var _watchPgVideosSection = require("./WatchPgVideosSection");
+var _watchPgVideosSectionDefault = parcelHelpers.interopDefault(_watchPgVideosSection);
+var _commentsSection = require("./CommentsSection");
+var _commentsSectionDefault = parcelHelpers.interopDefault(_commentsSection);
 var _s = $RefreshSig$();
 const WatchPage = ()=>{
     _s();
+    const dispatch = (0, _reactRedux.useDispatch)();
     const videos = (0, _useFetchVideosDefault.default)();
     const [searchParams, setSearchParams] = (0, _reactRouter.useSearchParams)();
     const videoId = searchParams.get("v");
     const comments = (0, _useVideoCommentsDefault.default)(videoId);
-    const dispatch = (0, _reactRedux.useDispatch)();
+    const video = (0, _useVideoDetailsDefault.default)(videoId);
+    const [count, setCount] = (0, _react.useState)(0);
+    (0, _react.useEffect)(()=>{
+        if (video?.statistics?.likeCount) setCount(Number(video.statistics.likeCount));
+    }, [
+        video
+    ]);
     (0, _react.useEffect)(()=>{
         dispatch((0, _appSlice.closeMenu)());
     }, []);
-    const video = (0, _useVideoDetailsDefault.default)(videoId);
     if (!video) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "p-8",
         children: "Loading..."
     }, void 0, false, {
         fileName: "src/components/WatchPage.js",
-        lineNumber: 21,
+        lineNumber: 31,
         columnNumber: 22
     }, undefined);
     const { snippet, statistics } = video;
+    console.log(video);
+    const handleLikeCount = ()=>{
+        setCount((prev)=>prev + 1); // ✅ Increments like count
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "flex justify-around px-2 py-4",
         children: [
@@ -34290,20 +34373,21 @@ const WatchPage = ()=>{
                         allowFullScreen: true
                     }, void 0, false, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 27,
+                        lineNumber: 42,
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "flex justify-between",
+                        className: "grid grid-cols-5 gap-3 place-items-center justify-items-stretch",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: " col-span-3",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                                        className: "font-bold text-xl mt-2",
+                                        className: "font-bold text-xl my-2",
                                         children: snippet.title
                                     }, void 0, false, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 33,
+                                        lineNumber: 48,
                                         columnNumber: 12
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -34311,46 +34395,66 @@ const WatchPage = ()=>{
                                         children: snippet.channelTitle
                                     }, void 0, false, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 34,
+                                        lineNumber: 49,
                                         columnNumber: 12
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/WatchPage.js",
-                                lineNumber: 32,
+                                lineNumber: 47,
                                 columnNumber: 9
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "flex items-center gap-3",
+                                className: "flex items-center gap-3 col-span-2",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "bg-gray-200 py-2 px-6 space-x-6 text-lg rounded-3xl",
+                                        className: "bg-gray-200 py-2 px-6 space-x-3 text-lg rounded-3xl",
                                         children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                                className: "fa-regular fa-thumbs-up hover:cursor-pointer"
-                                            }, void 0, false, {
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "inline space-x-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                                        onClick: ()=>{
+                                                            handleLikeCount();
+                                                        },
+                                                        className: "fa-regular fa-thumbs-up hover:cursor-pointer active:text-sm"
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/WatchPage.js",
+                                                        lineNumber: 55,
+                                                        columnNumber: 15
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                        className: "text-sm",
+                                                        children: count
+                                                    }, void 0, false, {
+                                                        fileName: "src/components/WatchPage.js",
+                                                        lineNumber: 59,
+                                                        columnNumber: 15
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "src/components/WatchPage.js",
-                                                lineNumber: 39,
+                                                lineNumber: 54,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                 children: "|"
                                             }, void 0, false, {
                                                 fileName: "src/components/WatchPage.js",
-                                                lineNumber: 40,
+                                                lineNumber: 61,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                                                className: "fa-regular fa-thumbs-down hover:cursor-pointer"
+                                                className: "fa-regular fa-thumbs-down hover:cursor-pointer active:text-sm"
                                             }, void 0, false, {
                                                 fileName: "src/components/WatchPage.js",
-                                                lineNumber: 41,
+                                                lineNumber: 62,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 38,
+                                        lineNumber: 53,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34361,7 +34465,7 @@ const WatchPage = ()=>{
                                                 src: "https://cdn-icons-png.flaticon.com/512/6469/6469436.png"
                                             }, void 0, false, {
                                                 fileName: "src/components/WatchPage.js",
-                                                lineNumber: 44,
+                                                lineNumber: 65,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -34369,20 +34473,20 @@ const WatchPage = ()=>{
                                                 children: "Share"
                                             }, void 0, false, {
                                                 fileName: "src/components/WatchPage.js",
-                                                lineNumber: 45,
+                                                lineNumber: 66,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 43,
+                                        lineNumber: 64,
                                         columnNumber: 14
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
                                         className: "fa-solid fa-arrow-down hover:cursor-pointer"
                                     }, void 0, false, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 47,
+                                        lineNumber: 68,
                                         columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -34390,215 +34494,96 @@ const WatchPage = ()=>{
                                         children: "..."
                                     }, void 0, false, {
                                         fileName: "src/components/WatchPage.js",
-                                        lineNumber: 48,
+                                        lineNumber: 69,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/WatchPage.js",
-                                lineNumber: 37,
+                                lineNumber: 52,
                                 columnNumber: 8
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 31,
+                        lineNumber: 46,
                         columnNumber: 7
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "mt-4 text-sm",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                className: "text-xs font-bold mb-1",
+                                className: "font-bold mb-1",
                                 children: [
-                                    statistics.likeCount,
+                                    statistics.viewCount,
                                     " views"
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/WatchPage.js",
-                                lineNumber: 52,
+                                lineNumber: 74,
                                 columnNumber: 7
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                className: "text-sm ",
                                 children: snippet.description
                             }, void 0, false, {
                                 fileName: "src/components/WatchPage.js",
-                                lineNumber: 53,
+                                lineNumber: 75,
                                 columnNumber: 7
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 51,
+                        lineNumber: 73,
                         columnNumber: 7
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "my-10 flex flex-col gap-5",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "flex items-center gap-2 text-xl font-bold",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                        children: statistics.commentCount
-                                    }, void 0, false, {
-                                        fileName: "src/components/WatchPage.js",
-                                        lineNumber: 59,
-                                        columnNumber: 12
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                                        children: "Comments"
-                                    }, void 0, false, {
-                                        fileName: "src/components/WatchPage.js",
-                                        lineNumber: 60,
-                                        columnNumber: 12
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/WatchPage.js",
-                                lineNumber: 58,
-                                columnNumber: 10
-                            }, undefined),
-                            comments.map((comment)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "flex gap-3 px-3",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            className: "rounded-full w-10 h-10",
-                                            src: comment.snippet.topLevelComment.snippet.authorProfileImageUrl,
-                                            onError: (e)=>{
-                                                e.target.onerror = null;
-                                                e.target.src = "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png";
-                                            },
-                                            alt: "profile"
-                                        }, void 0, false, {
-                                            fileName: "src/components/WatchPage.js",
-                                            lineNumber: 64,
-                                            columnNumber: 13
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "space-y-1",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                    className: "text-sm font-semibold ",
-                                                    children: comment.snippet.topLevelComment.snippet.authorDisplayName
-                                                }, void 0, false, {
-                                                    fileName: "src/components/WatchPage.js",
-                                                    lineNumber: 74,
-                                                    columnNumber: 13
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                                    className: "text-sm",
-                                                    children: comment.snippet.topLevelComment.snippet.textDisplay
-                                                }, void 0, false, {
-                                                    fileName: "src/components/WatchPage.js",
-                                                    lineNumber: 77,
-                                                    columnNumber: 13
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/components/WatchPage.js",
-                                            lineNumber: 73,
-                                            columnNumber: 13
-                                        }, undefined)
-                                    ]
-                                }, comment.id, true, {
-                                    fileName: "src/components/WatchPage.js",
-                                    lineNumber: 63,
-                                    columnNumber: 11
-                                }, undefined))
-                        ]
-                    }, void 0, true, {
+                    comments && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _commentsSectionDefault.default), {
+                        comments: comments,
+                        videoData: video
+                    }, void 0, false, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 57,
-                        columnNumber: 7
+                        lineNumber: 80,
+                        columnNumber: 6
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/WatchPage.js",
-                lineNumber: 26,
+                lineNumber: 41,
                 columnNumber: 5
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "space-y-6 ",
-                children: videos.map((vid)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: " w-95 h-28 flex space-x-2 hover:cursor-pointer ",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                alt: "Video thumbnail",
-                                className: "rounded-xl h-30",
-                                src: vid.snippet.thumbnails.high.url
-                            }, void 0, false, {
-                                fileName: "src/components/WatchPage.js",
-                                lineNumber: 88,
-                                columnNumber: 15
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "flex flex-col justify-around",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                                        className: "text-xs font-semibold text-black ",
-                                        children: vid.snippet.title
-                                    }, void 0, false, {
-                                        fileName: "src/components/WatchPage.js",
-                                        lineNumber: 90,
-                                        columnNumber: 16
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                                                className: "text-[#606060] text-xs",
-                                                children: vid.snippet.channelTitle
-                                            }, void 0, false, {
-                                                fileName: "src/components/WatchPage.js",
-                                                lineNumber: 92,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                className: "text-[#606060] text-xs",
-                                                children: [
-                                                    (vid.statistics.viewCount / 10000).toFixed(1),
-                                                    "K views "
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/components/WatchPage.js",
-                                                lineNumber: 93,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/components/WatchPage.js",
-                                        lineNumber: 91,
-                                        columnNumber: 16
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/components/WatchPage.js",
-                                lineNumber: 89,
-                                columnNumber: 15
-                            }, undefined)
-                        ]
-                    }, vid.id, true, {
+                className: "flex flex-col gap-5 ",
+                children: videos.map((vid)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouter.Link), {
+                        to: "/watch?v=" + vid.id,
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _watchPgVideosSectionDefault.default), {
+                            info: vid
+                        }, vid.id, false, {
+                            fileName: "src/components/WatchPage.js",
+                            lineNumber: 89,
+                            columnNumber: 11
+                        }, undefined)
+                    }, vid.id, false, {
                         fileName: "src/components/WatchPage.js",
-                        lineNumber: 87,
+                        lineNumber: 88,
                         columnNumber: 13
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/WatchPage.js",
-                lineNumber: 85,
+                lineNumber: 86,
                 columnNumber: 10
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/WatchPage.js",
-        lineNumber: 25,
+        lineNumber: 40,
         columnNumber: 5
     }, undefined);
 };
-_s(WatchPage, "K3vcjbgKqjweFkx7kVqrbWEYsS0=", false, function() {
+_s(WatchPage, "hRdFDEPI9VEeb9WatzNOJAAcfqw=", false, function() {
     return [
+        (0, _reactRedux.useDispatch),
         (0, _useFetchVideosDefault.default),
         (0, _reactRouter.useSearchParams),
         (0, _useVideoCommentsDefault.default),
-        (0, _reactRedux.useDispatch),
         (0, _useVideoDetailsDefault.default)
     ];
 });
@@ -34612,7 +34597,7 @@ $RefreshReg$(_c, "WatchPage");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-redux":"hbNxT","../utils/appSlice":"cVNx9","react-router":"2jawN","../utils/useVideoDetails":"kbzDV","../utils/useVideoComments":"2TiC9","../utils/useFetchVideos":"jFsia","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"kbzDV":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-redux":"hbNxT","../utils/appSlice":"cVNx9","react-router":"2jawN","../utils/useVideoDetails":"kbzDV","../utils/useVideoComments":"2TiC9","../utils/useFetchVideos":"jFsia","./WatchPgVideosSection":"hY4zn","./CommentsSection":"N1lyg","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"kbzDV":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$728c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$728c.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -34627,7 +34612,7 @@ var _s = $RefreshSig$();
 const useVideoDetails = (videoId)=>{
     _s();
     const [video, setVideo] = (0, _react.useState)(null);
-    const API_KEY = "AIzaSyAGlhwa-3CD81dDi6R9ZcbH90XDjS3dcFU";
+    const API_KEY = "AIzaSyBOs6hfgSUrWmCV_wgT8Ih1LkgVbXD-W04";
     (0, _react.useEffect)(()=>{
         if (!videoId) return;
         const fetchVideoDetails = async ()=>{
@@ -34636,7 +34621,9 @@ const useVideoDetails = (videoId)=>{
             setVideo(data.items[0]);
         };
         fetchVideoDetails();
-    }, []);
+    }, [
+        videoId
+    ]);
     return video;
 };
 _s(useVideoDetails, "GUQFMVsp4JwX8+yy6pEn7GsMQwI=");
@@ -34663,7 +34650,7 @@ var _s = $RefreshSig$();
 const useVideoComments = (videoId)=>{
     _s();
     const [comments, setComments] = (0, _react.useState)([]);
-    const API_KEY = "AIzaSyAGlhwa-3CD81dDi6R9ZcbH90XDjS3dcFU";
+    const API_KEY = "AIzaSyBOs6hfgSUrWmCV_wgT8Ih1LkgVbXD-W04";
     const fetchData = async ()=>{
         const res = await fetch((0, _constants.YOUTUBE_COMMENTS)(videoId, API_KEY));
         const json = await res.json();
@@ -34671,7 +34658,9 @@ const useVideoComments = (videoId)=>{
     };
     (0, _react.useEffect)(()=>{
         fetchData();
-    }, []);
+    }, [
+        videoId
+    ]);
     return comments;
 };
 _s(useVideoComments, "ByfV/t0DOiJY0nGyfgV+6QjIggQ=");
@@ -34716,7 +34705,198 @@ exports.default = useFetchVideo;
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"../Constants":"hwDSF","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"3Llkp":[function(require,module,exports,__globalThis) {
+},{"../Constants":"hwDSF","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"hY4zn":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$bfb8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$bfb8.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$bfb8.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const WatchPageVideoSection = ({ info })=>{
+    if (!info) return null;
+    const { snippet, statistics } = info;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: " w-95 h-28 flex space-x-2 hover:cursor-pointer",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                alt: "Video thumbnail",
+                className: "rounded-xl h-30",
+                src: snippet.thumbnails.high.url
+            }, void 0, false, {
+                fileName: "src/components/WatchPgVideosSection.js",
+                lineNumber: 6,
+                columnNumber: 9
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex flex-col justify-around",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                        className: "text-xs font-semibold text-black ",
+                        children: snippet.title
+                    }, void 0, false, {
+                        fileName: "src/components/WatchPgVideosSection.js",
+                        lineNumber: 8,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                                className: "text-[#606060] text-xs",
+                                children: snippet.channelTitle
+                            }, void 0, false, {
+                                fileName: "src/components/WatchPgVideosSection.js",
+                                lineNumber: 10,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "text-[#606060] text-xs",
+                                children: [
+                                    (statistics.viewCount / 10000).toFixed(1),
+                                    "K views "
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/WatchPgVideosSection.js",
+                                lineNumber: 11,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/WatchPgVideosSection.js",
+                        lineNumber: 9,
+                        columnNumber: 11
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/WatchPgVideosSection.js",
+                lineNumber: 7,
+                columnNumber: 9
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/WatchPgVideosSection.js",
+        lineNumber: 5,
+        columnNumber: 7
+    }, undefined);
+};
+_c = WatchPageVideoSection;
+exports.default = WatchPageVideoSection;
+var _c;
+$RefreshReg$(_c, "WatchPageVideoSection");
+
+  $parcel$ReactRefreshHelpers$bfb8.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"N1lyg":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$052c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$052c.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$052c.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const CommentsSection = ({ comments, videoData })=>{
+    if (!comments || !Array.isArray(comments)) return null;
+    const { snippet, statistics } = videoData;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "my-10 flex flex-col gap-5",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex items-center gap-2 text-xl font-bold",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        children: statistics.commentCount
+                    }, void 0, false, {
+                        fileName: "src/components/CommentsSection.js",
+                        lineNumber: 8,
+                        columnNumber: 12
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                        children: "Comments"
+                    }, void 0, false, {
+                        fileName: "src/components/CommentsSection.js",
+                        lineNumber: 9,
+                        columnNumber: 12
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/CommentsSection.js",
+                lineNumber: 7,
+                columnNumber: 10
+            }, undefined),
+            comments.map((comment)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "flex gap-3 px-3",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            className: "rounded-full w-10 h-10",
+                            src: comment.snippet.topLevelComment.snippet.authorProfileImageUrl,
+                            onError: (e)=>{
+                                e.target.onerror = null;
+                                e.target.src = "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png";
+                            },
+                            alt: "profile"
+                        }, void 0, false, {
+                            fileName: "src/components/CommentsSection.js",
+                            lineNumber: 13,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "space-y-1",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    className: "text-sm font-semibold ",
+                                    children: comment.snippet.topLevelComment.snippet.authorDisplayName
+                                }, void 0, false, {
+                                    fileName: "src/components/CommentsSection.js",
+                                    lineNumber: 23,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    className: "text-sm",
+                                    children: comment.snippet.topLevelComment.snippet.textDisplay
+                                }, void 0, false, {
+                                    fileName: "src/components/CommentsSection.js",
+                                    lineNumber: 26,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/CommentsSection.js",
+                            lineNumber: 22,
+                            columnNumber: 13
+                        }, undefined)
+                    ]
+                }, comment.id, true, {
+                    fileName: "src/components/CommentsSection.js",
+                    lineNumber: 12,
+                    columnNumber: 11
+                }, undefined))
+        ]
+    }, void 0, true, {
+        fileName: "src/components/CommentsSection.js",
+        lineNumber: 6,
+        columnNumber: 5
+    }, undefined);
+};
+_c = CommentsSection;
+exports.default = CommentsSection;
+var _c;
+$RefreshReg$(_c, "CommentsSection");
+
+  $parcel$ReactRefreshHelpers$052c.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7h6Pi"}],"3Llkp":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$f145 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$f145.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -34777,7 +34957,7 @@ var _button = require("./Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 const OptionsSection = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "overflow-x-auto whitespace-nowrap space-x-2 fixed bg-white -mt-6 py-4 z-10",
+        className: "w-full overflow-x-scroll whitespace-nowrap space-x-2 fixed bg-white -mt-6 py-4 z-10",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 className: "inline-block text-sm px-4 py-2 bg-black text-white rounded-md hover:cursor-pointer",
@@ -34971,7 +35151,7 @@ var _videoCard = require("./videoCard");
 var _videoCardDefault = parcelHelpers.interopDefault(_videoCard);
 var _reactRouter = require("react-router");
 var _s = $RefreshSig$();
-const VideosSection = ()=>{
+const VideosSection = ({ info })=>{
     _s();
     const videos = (0, _useFetchVideosDefault.default)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35034,63 +35214,81 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const VideoCard = ({ info })=>{
     if (!info) return null;
     const { snippet, statistics } = info;
-    const { channelTitle, title, thumbnails } = snippet;
+    const { title, channelTitle, thumbnails } = snippet;
+    const { viewCount } = statistics;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                className: "rounded-2xl h-68 w-full mb-2",
+                className: "rounded-2xl w-full mb-2",
                 src: thumbnails?.high?.url,
                 alt: "video thumbnail"
             }, void 0, false, {
                 fileName: "src/components/videoCard.js",
-                lineNumber: 9,
+                lineNumber: 10,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                className: "space-y-2",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex items-start gap-4",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        className: "font-semibold text-lg",
-                        children: title
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                        className: "rounded-full w-8 h-8",
+                        src: thumbnails?.default?.url,
+                        alt: "video thumbnail"
                     }, void 0, false, {
                         fileName: "src/components/videoCard.js",
-                        lineNumber: 12,
-                        columnNumber: 9
+                        lineNumber: 13,
+                        columnNumber: 7
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                        className: "space-y-1",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "text-sm text-[#606060] mb-1",
-                                children: channelTitle
+                                className: "font-semibold text-sm",
+                                children: title
                             }, void 0, false, {
                                 fileName: "src/components/videoCard.js",
-                                lineNumber: 14,
+                                lineNumber: 16,
                                 columnNumber: 9
                             }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                className: "text-xs text-[#606060]",
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                 children: [
-                                    (statistics?.viewCount / 1000000).toFixed(1),
-                                    " K views"
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        className: "text-sm text-[#606060] mb-1",
+                                        children: channelTitle
+                                    }, void 0, false, {
+                                        fileName: "src/components/videoCard.js",
+                                        lineNumber: 18,
+                                        columnNumber: 9
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        className: "text-xs text-[#606060]",
+                                        children: [
+                                            (viewCount / 100000).toFixed(1),
+                                            " M views"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/components/videoCard.js",
+                                        lineNumber: 19,
+                                        columnNumber: 9
+                                    }, undefined)
                                 ]
-                            }, void 0, true, {
-                                fileName: "src/components/videoCard.js",
-                                lineNumber: 15,
-                                columnNumber: 9
-                            }, undefined)
+                            }, void 0, true)
                         ]
-                    }, void 0, true)
+                    }, void 0, true, {
+                        fileName: "src/components/videoCard.js",
+                        lineNumber: 15,
+                        columnNumber: 7
+                    }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/videoCard.js",
-                lineNumber: 11,
+                lineNumber: 12,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/videoCard.js",
-        lineNumber: 8,
+        lineNumber: 9,
         columnNumber: 5
     }, undefined);
 };

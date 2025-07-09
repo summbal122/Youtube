@@ -12,7 +12,7 @@ const useVideoComments = (videoId) => {
   }
    useEffect(() => {
     fetchData();
-   },[])
+   }, [videoId])
   return comments;
 
 }

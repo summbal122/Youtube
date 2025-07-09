@@ -13,7 +13,7 @@ const SideBar = () => {
       <li className="flex gap-4 ml-3 items-center hover:cursor-pointer">
         <i className="fa-solid fa-house text-lg "></i> 
         <Link to="/">Home </Link>
-</li>
+        </li>
        <li className="flex items-center gap-2 hover:cursor-pointer" ><img className="w-9 inline" alt="" src={SHORTS_LOGO}/>
         Shorts</li>
        <li className="flex items-center hover:cursor-pointer">
