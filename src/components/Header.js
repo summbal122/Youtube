@@ -38,9 +38,11 @@ const Header = () => {
   const handleSearch= () => {
     if (!searchQuery.trim()) return;
     dispatch(setSearchTerm(searchQuery));
-    
-    console.log("Searching for:", searchQuery);
-
+  }
+  const handleKeyDown = (e) => {
+    if(e.key === "Enter") {
+      handleSearch();
+    }
   }
   return (
     <div className="grid grid-cols-12 px-6 py-1 gap-6 sticky top-0 bg-white z-30 ">
@@ -59,6 +61,7 @@ const Header = () => {
       onChange={(e) => setSearchQuery(e.target.value)}
       onFocus={() => {setShowSuggestions(true)}}
       onBlur={() => {setShowSuggestions(false)}}
+      onKeyDown={handleKeyDown}
 
     />
     <button  onClick={()=> handleSearch()} className="bg-gray-100 border border-gray-300 px-6 rounded-r-full hover:bg-gray-200">

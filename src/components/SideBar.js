@@ -1,19 +1,31 @@
 import { Link } from "react-router";
 import { SHORTS_LOGO, SUBS_LOGO, PLAYLIST_LOGO, WATCH_LATER_LOGO, YOUR_VIDEOS_LOGO, GAMING_LOGO, NEWS_LOGO, SPORTS_LOGO } from "../Constants"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchTerm } from "../utils/searchSlice";
+
 const SideBar = () => {
+
+  const dispatch = useDispatch();
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen)
   const IMG = new URL("../../images/sports.png", import.meta.url).href;
   const IMG_TRENDING = new URL("../../images/trending.png", import.meta.url).href;
-
+  
+  const handleHomeClick = ()=> {
+    dispatch(setSearchTerm(false));
+  };
   if (!isMenuOpen) return null;
   return (
     <div className=" flex flex-col items-center gap-4 sticky top-20 bottom-0 overflow-x-scroll h-145">
       <ul className="space-y-4 flex flex-col ">
-      <li className="flex gap-4 ml-3 items-center hover:cursor-pointer">
+       <Link to="/">
+      <li onClick={()=> {
+        handleHomeClick();
+        }} className="flex gap-4 ml-3 items-center hover:cursor-pointer">
+       
         <i className="fa-solid fa-house text-lg "></i> 
-        <Link to="/">Home </Link>
+        Home 
         </li>
+        </Link>
        <li className="flex items-center gap-2 hover:cursor-pointer" ><img className="w-9 inline" alt="" src={SHORTS_LOGO}/>
         Shorts</li>
        <li className="flex items-center hover:cursor-pointer">
