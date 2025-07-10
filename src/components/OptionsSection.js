@@ -2,8 +2,8 @@ import Button from "./Button";
 
 const OptionsSection  = () => {
   return (
-    <div className="sticky z-20 bg-white overflow-x-auto whitespace-nowrap mr-4 py-2">
-      <button className="inline-block text-sm px-4 py-2 bg-black text-white rounded-md hover:cursor-pointer mr-2">
+    <div className="sticky z-20 bg-white overflow-x-auto whitespace-nowrap py-2">
+      <button className="inline-block text-[10px] md:text-xs lg:text-sm 2xl:text-xl px-4 py-2 2xl:px-6 2xl:py-3 bg-black text-white rounded-md hover:cursor-pointer mr-1.5 md:mr-2 2xl:mr-4">
         All
       </button>
       <Button title="Music" />

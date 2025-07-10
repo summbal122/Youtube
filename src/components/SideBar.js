@@ -15,8 +15,8 @@ const SideBar = () => {
   };
   if (!isMenuOpen) return null;
   return (
-    <div className=" flex flex-col items-center gap-4 sticky top-20 bottom-0 overflow-x-scroll h-145">
-      <ul className="space-y-4 flex flex-col ">
+    <div className="flex flex-col items-center gap-4 sticky top-20 bottom-0 overflow-x-scroll h-screen  2xl:px-6">
+      <ul className="space-y-3 2xl:space-y-6 flex flex-col 2xl:text-2xl ">
        <Link to="/">
       <li onClick={()=> {
         handleHomeClick();
@@ -34,9 +34,9 @@ const SideBar = () => {
       </ul>
 
       <hr className="text-gray-200 w-full"></hr>
-     <div className="space-y-2">
+     <div className="space-y-2 2xl:text-2xl ">
       <h1>You</h1>
-       <ul className="space-y-3 flex flex-col">
+       <ul className="space-y-3 2xl:space-y-6 flex flex-col ">
         <li className="flex gap-4 items-center hover:cursor-pointer">
         <i className="fa-solid fa-clock-rotate-left text-lg">
         </i>History </li>
@@ -56,9 +56,9 @@ const SideBar = () => {
        </div>
      <hr className="text-gray-200 w-full"></hr>
 
-     <div className="space-y-2 -ml-6">
+     <div className=" space-y-2 2xl:space-y-4 -ml-6 2xl:text-2xl ">
       <h2>Explore</h2>
-       <ul className="space-y-3 flex flex-col hover:cursor-pointer " >
+       <ul className="space-y-3 2xl:space-y-6 flex flex-col hover:cursor-pointer " >
         <li><img className="w-12 -ml-3 inline hover:cursor-pointer " alt="" src={IMG_TRENDING}/>Trending</li>
         <li className="flex gap-6 items-center hover:cursor-pointer"><i className="fa-solid fa-music text-lg"></i>Music</li>
        <li className="flex gap-3 items-center hover:cursor-pointer"><img className="w-7 inline " alt="" src={GAMING_LOGO}/>Gaming</li>

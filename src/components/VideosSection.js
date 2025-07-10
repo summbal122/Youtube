@@ -10,18 +10,17 @@ const VideosSection = () => {
  const searchedVideos = searchTerm ? videos.filter((vid) => vid.snippet.title.toLowerCase().includes(searchTerm.toLowerCase())) : videos;
 
   return (
-    <div>
+    <div className="2xl:mt-8">
      {videos.length === 0 ? (
        <Shimmer count= {50}/>
     ) : searchedVideos.length === 0 ? (
-      <p className="col-span-3 text-center text-gray-500 text-lg mt-20 ">No videos found</p>
+      <p className="col-span-3 text-center text-gray-500 text-lg 2xl:text-3xl mt-20 2xl:mt-40 ">No videos found</p>
     ) : (
-        <div className="grid grid-cols-3 gap-x-4 gap-y-7 mt-4"> 
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-4 2xl:gap-x-8 gap-y-7 2xl:gap-y-12 mt-4"> 
        { searchedVideos.map((vid) => <Link key={vid.id} to={"/watch?v="+vid.id} >
           <VideoCard key={vid.id} info={vid} /> </Link>  )}
        </div>
       )}
-      
      
     </div>
   )
