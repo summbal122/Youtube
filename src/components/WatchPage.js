@@ -8,6 +8,7 @@ import useFetchVideo from "../utils/useFetchVideos";
 import WatchPageVideoSection from "./WatchPgVideosSection";
 import { Link } from "react-router";
 import CommentsSection from "./CommentsSection";
+import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
@@ -85,16 +86,18 @@ const WatchPage = () => {
       <h3 className="font-bold mb-1">{statistics.viewCount} views</h3>
       <p>{snippet.description}</p>
       </div>
-
+      
       {/* comments section */}
      {comments && (
      <CommentsSection comments={comments} videoData={video} />
      )}
+     
 
       </div>
       
       {/* videos section */}
          <div className="flex flex-col gap-5 ">
+          <LiveChat/>
           {videos.map((vid) => (
             <Link key={vid.id} to={"/watch?v="+vid.id} >
           <WatchPageVideoSection key= {vid.id} info={vid} />
