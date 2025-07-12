@@ -1,17 +1,17 @@
 
 const CommentsSection = ({comments, videoData}) => {
  if (!comments || !Array.isArray(comments)) return null;
- const { snippet, statistics } = videoData;
+ const { statistics } = videoData;
   return (
-    <div className="my-10 flex flex-col gap-5">
-         <div className="flex items-center gap-2 text-xl font-bold">
+    <div className="mt-6 lg:mt-8 w-full flex flex-col gap-5">
+         <div className="flex items-center gap-2 lg:text-lg 2xl:text-2xl font-bold">
            <h3 >{statistics.commentCount}</h3>
            <h2 >Comments</h2>
          </div>
           {comments.map((comment) => (
-          <div key={comment.id} className="flex gap-3 px-3">
+          <div key={comment.id} className="flex gap-1.5 md:gap-3 md:px-3">
             <img
-            className="rounded-full w-10 h-10"
+            className="rounded-full w-7 h-7 md:w-10 md:h-10 "
             src={comment.snippet.topLevelComment.snippet.authorProfileImageUrl}
             onError={(e) => {
             e.target.onerror = null;
@@ -19,11 +19,11 @@ const CommentsSection = ({comments, videoData}) => {
             }}
             alt="profile"
             />
-            <div className="space-y-1"> 
-            <p className="text-sm font-semibold ">
+            <div className="space-y-1 text-xs md:text-sm 2xl:text-2xl"> 
+            <p className="font-semibold ">
               {comment.snippet.topLevelComment.snippet.authorDisplayName}
             </p>
-            <p className="text-sm">{comment.snippet.topLevelComment.snippet.textDisplay}</p>
+            <p>{comment.snippet.topLevelComment.snippet.textDisplay}</p>
             </div>
           </div>
         ))}
