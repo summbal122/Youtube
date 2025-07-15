@@ -23,6 +23,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "@tailwindcss/cli": "^4.1.11",
+    "firebase": "^11.10.0",
     "i": "^0.3.7",
     "npm": "^11.4.2",
     "react": "^19.1.0",

@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 
 const Body = () => {
   return (
-    <div className="flex w-full mt-4">
+    <div className="flex w-full mt-2 md:mt-4">
       <div>
         <SideBar />
       </div> 

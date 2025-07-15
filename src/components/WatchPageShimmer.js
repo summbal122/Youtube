@@ -1,4 +1,5 @@
 const WatchPageShimmer = () => {
+  
   return (
     <div className="grid lg:grid-cols-12 gap-4 2xl:gap-12 px-2 xl:px-4 2xl:px-8 py-2 md:py-4 animate-pulse">
       <div className="space-y-4 lg:col-span-8">

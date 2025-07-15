@@ -114,7 +114,6 @@ const Header = () => {
         </div>
 
         <div className="md:col-span-6 w-full flex items-center justify-center relative">
-        {!isWatchPage && (    
         <div className="w-full flex">
             <div className="flex w-full relative">
               <input
@@ -157,7 +156,6 @@ const Header = () => {
             <i className="fa-solid fa-microphone lg:text-lg text-gray-700 2xl:text-3xl"></i>
           </button>
           </div>
-        )}
         </div>
 
         <div className="md:col-span-3 flex items-center gap-3 lg:gap-6 2xl:gap-20 justify-end text-xs lg:text-lg 2xl:text-3xl">
