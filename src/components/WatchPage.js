@@ -10,7 +10,7 @@ import { Link } from "react-router";
 import CommentsSection from "./CommentsSection";
 import LiveChat from "./LiveChat";
 import WatchPageShimmer from "./WatchPageShimmer";
-
+import { setSearchTerm } from "../utils/searchSlice";
 const WatchPage = () => {
   const dispatch = useDispatch();
   const videos = useFetchVideo();
@@ -24,8 +24,7 @@ const WatchPage = () => {
   const searchTerm = useSelector((store) => store.search.searchTerm);
   const searchedVideos = searchTerm
     ? videos.filter((vid) =>
-        vid.snippet.title.toLowerCase().includes(searchTerm.toLowerCase())
-      )
+        vid.snippet.title.toLowerCase().includes(searchTerm.toLowerCase())   )
     : videos;
   const [showFullDescription, setShowFullDescription] = useState(false);
   const descriptionLimit = 150;
@@ -62,7 +61,7 @@ const WatchPage = () => {
           Results for "<span className="text-blue-600">{searchTerm}</span>"
         </h2>
         {searchedVideos.length > 0 ? (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols- 2xl:grid-cols-4 gap-6">
             {searchedVideos.map((vid) => (
               <Link
               key={vid.id}

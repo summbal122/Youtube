@@ -46,6 +46,7 @@ const Header = () => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleSearch();
+      
     }
   };
 
@@ -53,7 +54,6 @@ const Header = () => {
     <div className="sticky top-0 bg-white z-30">
       {/* MOBILE HEADER */}
       <div className="md:hidden px-4 py-2 space-y-2">
-        {/* Row: Hamburger + Logo + Create */}
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-4">
             <i onClick={toogleMenuHandle} className="fa-solid fa-bars text-xl hover:cursor-pointer"></i>
