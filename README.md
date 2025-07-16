@@ -39,7 +39,9 @@ git clone https://github.com/summbal122/Youtube.git
 cd Youtube
 
 npm install
-npm run start ```
+npm run start 
+```
+___
 
 ## 📱 App Screenshots
 
@@ -62,3 +64,5 @@ These screenshots show how the app adapts to mobile screen sizes:
 ![Mobile View 1](screenshots/mobile.png)  
 ![Mobile View 2](screenshots/mobile2.png)  
 ![Mobile View 3](screenshots/mobile3.png)
+
+
