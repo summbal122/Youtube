@@ -49,11 +49,17 @@ ___
 
 These screenshots show how the app looks on desktop or laptop devices:
 
-![Desktop View 1](screenshots/image.png)  
-![Desktop View 2](screenshots/image1.png)  
-![Desktop View 3](screenshots/image2.png)  
-![Desktop View 4](screenshots/image3.png)  
-![Desktop View 5](screenshots/image4.png)
+<p>
+  <img src="screenshots/image.png" alt="Desktop View 1" style="margin-bottom:10px;" />
+  <br />
+  <img src="screenshots/image1.png" alt="Desktop View 2" style="margin-bottom:10px;" />
+  <br />
+  <img src="screenshots/image2.png" alt="Desktop View 3" style="margin-bottom:10px;" />
+  <br />
+  <img src="screenshots/image3.png" alt="Desktop View 4" style="margin-bottom:10px;" />
+  <br />
+  <img src="screenshots/image4.png" alt="Desktop View 5" style="margin-bottom:10px;" />
+</p>
 
 ---
 
@@ -61,8 +67,11 @@ These screenshots show how the app looks on desktop or laptop devices:
 
 These screenshots show how the app adapts to mobile screen sizes:
 
-![Mobile View 1](screenshots/mobile.png)  
-![Mobile View 2](screenshots/mobile2.png)  
-![Mobile View 3](screenshots/mobile3.png)
-
+<p>
+  <img src="screenshots/mobile.png" alt="Mobile View 1" width="250" style="margin-bottom:10px;" />
+  <br />
+  <img src="screenshots/mobile2.png" alt="Mobile View 2" width="250" style="margin-bottom:10px;" />
+  <br />
+  <img src="screenshots/mobile3.png" alt="Mobile View 3" width="250" style="margin-bottom:10px;" />
+</p>
 
