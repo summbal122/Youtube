@@ -53,7 +53,7 @@ const WatchPage = () => {
     setSubscribe(!subscribe);
   };
 
-  // ✅ Render Search Results if search term is active
+  //  Render Search Results if search term is active
   if (searchTerm) {
     return (
       <div className="px-4 py-4">
