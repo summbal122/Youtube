@@ -1,13 +1,13 @@
-# 🎥 YouTube Clone (React + Redux + Tailwind)
+# YouTube Clone (React + Redux + Tailwind)
 
 This is a **YouTube Clone** built with **React**, **Redux**, and **Tailwind CSS**. It uses the **YouTube Data API v3** to fetch trending videos, display search results, and simulate a YouTube-like browsing experience.
 
-🔗 **Live Demo:** [fir-ad80a.web.app](https://fir-ad80a.web.app/)  
-📂 **GitHub Repo:** [github.com/summbal122/Youtube](https://github.com/summbal122/Youtube)
+**Live Demo:** [fir-ad80a.web.app](https://fir-ad80a.web.app/)  
+**GitHub Repo:** [github.com/summbal122/Youtube](https://github.com/summbal122/Youtube)
 
 ---
 
-## 🚀 Features
+##  Features
 
 -  Real-time search
 -  Trending videos on homepage
@@ -30,7 +30,7 @@ This is a **YouTube Clone** built with **React**, **Redux**, and **Tailwind CSS*
 
 ---
 
-## 📦 Installation
+## Installation
 
 To run this project locally:
 
@@ -43,9 +43,9 @@ npm run start
 ```
 ___
 
-## 📱 App Screenshots
+## App Screenshots
 
-### 🖥️ Larger Screen View
+### Larger Screen View
 
 These screenshots show how the app looks on desktop or laptop devices:
 

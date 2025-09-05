@@ -7,7 +7,7 @@ const searchSlice = createSlice({
   name: "search",
   initialState: {
     cache: lru.toObject(),
-    searchTerm: "", // ✅ added searchTerm
+    searchTerm: "", // added searchTerm
   },
   reducers: {
     cacheResults: (state, action) => {

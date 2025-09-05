@@ -5,8 +5,7 @@ const ChatMessage = ({name, message}) => {
       <img
       className="h-6 md:h-7 2xl:h-9 rounded-full"
       alt="user"
-      src="https://yt4.ggpht.com/ytc/AIdro_kRjevQHFWu_QOwH7-XQao-TIrcJGIqI1SEw1cR-k4=s32-c-k-c0x00ffffff-no-rj"
-      />
+      src="https://yt4.ggpht.com/ytc/AIdro_kRjevQHFWu_QOwH7-XQao-TIrcJGIqI1SEw1cR-k4=s32-c-k-c0x00ffffff-no-rj" />
       <>
       <h1 className="font-semibold text-gray-600/80 text-xs md:text-sm 2xl:text-xl">{name}</h1>
       <p className="text-[10px] md:text-xs 2xl:text-lg">{message}</p>
